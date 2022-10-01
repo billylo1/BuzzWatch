@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,14 @@
 		BD082B6A28E3A13700B68BAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B6928E3A13700B68BAF /* ContentView.swift */; };
 		BD082B6C28E3A13800B68BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD082B6B28E3A13800B68BAF /* Assets.xcassets */; };
 		BD082B6F28E3A13800B68BAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD082B6E28E3A13800B68BAF /* Preview Assets.xcassets */; };
+		BD082B7A28E3BAEE00B68BAF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7928E3BAEE00B68BAF /* NotificationController.swift */; };
+		BD082B7C28E3BB8D00B68BAF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */; };
+		BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */; };
+		BDF2E82728E7CE3F001CEB60 /* SetupMonitoredSoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */; };
+		BDF2E82828E7CE3F001CEB60 /* SoundIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */; };
+		BDF2E82928E7CE3F001CEB60 /* DetectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */; };
+		BDF2E82B28E7CE3F001CEB60 /* ClassificationResultsSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */; };
+		BDF2E82E28E7CECF001CEB60 /* SystemAudioClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		BD082B6928E3A13700B68BAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD082B6B28E3A13800B68BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD082B6E28E3A13800B68BAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD082B7928E3BAEE00B68BAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupMonitoredSoundsView.swift; sourceTree = "<group>"; };
+		BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundIdentifier.swift; sourceTree = "<group>"; };
+		BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionState.swift; sourceTree = "<group>"; };
+		BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassificationResultsSubject.swift; sourceTree = "<group>"; };
+		BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemAudioClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +98,14 @@
 				BD082B6928E3A13700B68BAF /* ContentView.swift */,
 				BD082B6B28E3A13800B68BAF /* Assets.xcassets */,
 				BD082B6D28E3A13800B68BAF /* Preview Content */,
+				BD082B7928E3BAEE00B68BAF /* NotificationController.swift */,
+				BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */,
+				BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */,
+				BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */,
+				BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */,
+				BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */,
+				BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */,
+				BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */,
 			);
 			path = "BuzzWatch Watch App";
 			sourceTree = "<group>";
@@ -150,7 +174,7 @@
 				};
 			};
 			buildConfigurationList = BD082B5928E3A13700B68BAF /* Build configuration list for PBXProject "BuzzWatch" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,6 +206,7 @@
 			files = (
 				BD082B6F28E3A13800B68BAF /* Preview Assets.xcassets in Resources */,
 				BD082B6C28E3A13800B68BAF /* Assets.xcassets in Resources */,
+				BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +217,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF2E82828E7CE3F001CEB60 /* SoundIdentifier.swift in Sources */,
+				BDF2E82B28E7CE3F001CEB60 /* ClassificationResultsSubject.swift in Sources */,
 				BD082B6A28E3A13700B68BAF /* ContentView.swift in Sources */,
+				BDF2E82728E7CE3F001CEB60 /* SetupMonitoredSoundsView.swift in Sources */,
 				BD082B6828E3A13700B68BAF /* BuzzWatchApp.swift in Sources */,
+				BD082B7A28E3BAEE00B68BAF /* NotificationController.swift in Sources */,
+				BD082B7C28E3BB8D00B68BAF /* NotificationView.swift in Sources */,
+				BDF2E82928E7CE3F001CEB60 /* DetectionState.swift in Sources */,
+				BDF2E82E28E7CECF001CEB60 /* SystemAudioClassifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +273,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -299,6 +332,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -343,7 +377,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -374,7 +408,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
