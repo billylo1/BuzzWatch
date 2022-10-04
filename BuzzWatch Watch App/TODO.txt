@@ -1,8 +1,8 @@
 // - pick category to listen to (default) - phone call?
 // - start button to ask for permissions (recording and notifications)
 
+- configurable thresholds and auto-start
 - show icons and confidence level to custom notification (myCategory)
-- configurable thresholds
 - log event times
 
 
