@@ -1,0 +1,8 @@
+app_identifier("com.evergreenlabs.BuzzWatch2.watchkitapp") # The bundle identifier of your app
+apple_id("billylo@yahoo.com") # Your Apple Developer Portal username
+
+itc_team_id("672377") # App Store Connect Team ID
+team_id("F6X27PB5BH") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

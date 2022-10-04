@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import SoundAnalysis
+import UserNotifications
 
 /// Contains customizable settings that control app behavior.
 struct AppConfiguration {
@@ -26,9 +27,11 @@ struct AppConfiguration {
     var monitoredSounds = Set<SoundIdentifier>()
 
     init() {
-        self.monitoredSounds = [SoundIdentifier(labelName: "aircraft"), SoundIdentifier(labelName: "airplane"),
-            SoundIdentifier(labelName: "piano"),
-            SoundIdentifier(labelName: "wind_rustling_leaves")
+        self.monitoredSounds = [
+            SoundIdentifier(labelName: "car_horn"),
+            SoundIdentifier(labelName: "siren"),
+            SoundIdentifier(labelName: "smoke_detector"),
+            SoundIdentifier(labelName: "screaming")
         ]
     }
 
@@ -92,6 +95,9 @@ class AppState: ObservableObject {
           .receive(on: DispatchQueue.main)
           .sink(receiveCompletion: { _ in self.soundDetectionIsRunning = false },
                 receiveValue: {
+              
+                      let result : SNClassificationResult = $0
+                      self.handleClassification(result)
                     self.detectionStates = AppState.advanceDetectionStates(self.detectionStates, givenClassificationResult: $0)
                 })
 
@@ -110,6 +116,79 @@ class AppState: ObservableObject {
           subject: classificationSubject,
           inferenceWindowSize: config.inferenceWindowSize,
           overlapFactor: config.overlapFactor)
+    }
+
+    let notificationConfidenceThreshold = 0.6
+    let waitTimeBetweenNotifications : Double = 1
+    var lastNotified = Date.distantPast
+    
+    func handleClassification(_ result: SNClassificationResult) {
+        
+        if -lastNotified.timeIntervalSinceNow > waitTimeBetweenNotifications {
+            let carHornConfidence = result.classification(forIdentifier: "car horn")?.confidence ?? 0.0
+            let sirenConfidence = result.classification(forIdentifier: "siren")?.confidence ?? 0.0
+            let smokeDetectorConfidence = result.classification(forIdentifier: "smoke detector")?.confidence ?? 0.0
+            let screamingConfidence = result.classification(forIdentifier: "screaming")?.confidence ?? 0.0
+            let fingerSnappingConfidence = result.classification(forIdentifier: "finger_snapping")?.confidence ?? 0.0
+            
+            if carHornConfidence > notificationConfidenceThreshold {
+                sendNotification("Car Horn", carHornConfidence)
+                // WKInterfaceDevice.current().play(.notification)
+            }
+            if sirenConfidence > notificationConfidenceThreshold {
+                sendNotification("Siren", sirenConfidence)
+            }
+            if smokeDetectorConfidence > notificationConfidenceThreshold {
+                sendNotification("Smoke Detector", smokeDetectorConfidence)
+            }
+            if screamingConfidence > notificationConfidenceThreshold {
+                sendNotification("Screaming", screamingConfidence)
+            }
+            if fingerSnappingConfidence > notificationConfidenceThreshold {
+                sendNotification("Finger Snapping", fingerSnappingConfidence)
+                WKInterfaceDevice.current().play(.navigationLeftTurn)
+            }
+        }
+
+    }
+    
+    func sendNotification(_ title: String, _ confidence: Double) {
+        
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        let center = UNUserNotificationCenter.current()
+
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if granted {
+                print("granted")
+            } else {
+                print(error?.localizedDescription ?? "not granted")
+            }
+        }
+
+        let content = UNMutableNotificationContent()
+        content.title = title
+        let formatter1 = DateFormatter()
+        formatter1.timeStyle = .medium
+        let body = formatter1.string(from: Date.now)
+        content.body = "At \(body)"
+        content.sound = UNNotificationSound.default
+        content.categoryIdentifier = "myCategory"
+        content.interruptionLevel = .timeSensitive
+        
+        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("sent \(title) at \(confidence)")
+                self.lastNotified = Date.now
+            }
+        }
+        
     }
 
     /// Updates the detection states according to the latest classification result.

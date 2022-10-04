@@ -31,6 +31,9 @@ struct ContentView: View {
                     }
                 }
                 
+                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+                UNUserNotificationCenter.current().setNotificationCategories([category])
+
                 let content = UNMutableNotificationContent()
                 content.title = "Car horn"
                 let formatter1 = DateFormatter()
@@ -40,7 +43,7 @@ struct ContentView: View {
                 content.sound = UNNotificationSound.default
                 content.interruptionLevel = .timeSensitive
                 content.subtitle = "Hello"
-                content.categoryIdentifier = "myCategory"
+                content.categoryIdentifier = "myCategory1"
                 
                 let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 

@@ -60,22 +60,26 @@ final class SystemAudioClassifier: NSObject {
     /// Requests permission to access microphone input, throwing an error if the user denies access.
     private func ensureMicrophoneAccess() throws {
         var hasMicrophoneAccess = false
-//        switch AVCaptureDevice.authorizationStatus(for: .audio) {
-//        case .notDetermined:
-//            let sem = DispatchSemaphore(value: 0)
-//            AVCaptureDevice.requestAccess(for: .audio, completionHandler: { success in
-//                hasMicrophoneAccess = success
-//                sem.signal()
-//            })
-//            _ = sem.wait(timeout: DispatchTime.distantFuture)
-//        case .denied, .restricted:
-//            break
-//        case .authorized:
-//            hasMicrophoneAccess = true
-//        @unknown default:
-//            fatalError("unknown authorization status for microphone access")
-//        }
+        
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case .granted:
+            hasMicrophoneAccess = true
+            print("Permission granted")
+        case .denied:
+            print("Permission denied")
+        case .undetermined:
+            print("Request permission here")
+            let sem = DispatchSemaphore(value: 0)
+            AVAudioSession.sharedInstance().requestRecordPermission({ granted in
+                hasMicrophoneAccess = granted
+                sem.signal()
+            })
+            _ = sem.wait(timeout: DispatchTime.distantFuture)
 
+        @unknown default:
+            print("Unknown case")
+        }
+        
         if !hasMicrophoneAccess {
             throw SystemAudioClassificationError.noMicrophoneAccess
         }
@@ -243,6 +247,7 @@ final class SystemAudioClassifier: NSObject {
 
             startListeningForAudioSessionInterruptions()
             try startAnalyzing([(request, observer)])
+            print("< startSoundClassification")
         } catch {
             subject.send(completion: .failure(error))
             self.subject = nil

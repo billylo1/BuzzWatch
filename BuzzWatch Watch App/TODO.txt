@@ -1,0 +1,7 @@
+// - pick category to listen to (default) - phone call?
+- show icons, pass title and body to custom notification (myCategory)
+- map to vibration types
+- start button to ask for permissions (recording and notifications)
+- configurable thresholds
+- log event times
+

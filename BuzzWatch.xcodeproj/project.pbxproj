@@ -15,6 +15,8 @@
 		BD082B7A28E3BAEE00B68BAF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7928E3BAEE00B68BAF /* NotificationController.swift */; };
 		BD082B7C28E3BB8D00B68BAF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */; };
 		BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */; };
+		BDE946FB28EBB99800736ACA /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = BDE946FA28EBB99800736ACA /* TODO.txt */; };
+		BDEEA62E28EBDAE6007CE0A7 /* BuzzWatch-Watch-App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */; };
 		BDF2E82728E7CE3F001CEB60 /* SetupMonitoredSoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */; };
 		BDF2E82828E7CE3F001CEB60 /* SoundIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */; };
 		BDF2E82928E7CE3F001CEB60 /* DetectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */; };
@@ -56,6 +58,9 @@
 		BD082B7928E3BAEE00B68BAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		BD5DA6A728EBC93D002D162C /* BuzzWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzWatch Watch App.entitlements"; sourceTree = "<group>"; };
+		BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BuzzWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BDE946FA28EBB99800736ACA /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupMonitoredSoundsView.swift; sourceTree = "<group>"; };
 		BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundIdentifier.swift; sourceTree = "<group>"; };
 		BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionState.swift; sourceTree = "<group>"; };
@@ -94,6 +99,9 @@
 		BD082B6628E3A13700B68BAF /* BuzzWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				BD5DA6A728EBC93D002D162C /* BuzzWatch Watch App.entitlements */,
+				BDE946FA28EBB99800736ACA /* TODO.txt */,
+				BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */,
 				BD082B6728E3A13700B68BAF /* BuzzWatchApp.swift */,
 				BD082B6928E3A13700B68BAF /* ContentView.swift */,
 				BD082B6B28E3A13800B68BAF /* Assets.xcassets */,
@@ -197,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDEEA62E28EBDAE6007CE0A7 /* BuzzWatch-Watch-App-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE946FB28EBB99800736ACA /* TODO.txt in Resources */,
 				BD082B6F28E3A13800B68BAF /* Preview Assets.xcassets in Resources */,
 				BD082B6C28E3A13800B68BAF /* Assets.xcassets in Resources */,
 				BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */,
@@ -356,13 +366,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzWatch Watch App/BuzzWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BuzzWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -386,13 +399,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzWatch Watch App/BuzzWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BuzzWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -417,9 +433,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important events";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -433,9 +451,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important events";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
