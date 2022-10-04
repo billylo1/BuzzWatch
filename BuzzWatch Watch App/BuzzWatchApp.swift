@@ -179,9 +179,9 @@ class AppState: ObservableObject {
         formatter1.timeStyle = .medium
         let body = formatter1.string(from: Date.now)
         content.body = "At \(body)"
-        content.sound = .default
+        content.sound = .defaultCritical
         content.categoryIdentifier = "myCategory"
-//        content.interruptionLevel = .timeSensitive
+        content.interruptionLevel = .timeSensitive
         
         let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
 
