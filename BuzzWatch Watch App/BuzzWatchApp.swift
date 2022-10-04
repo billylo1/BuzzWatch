@@ -124,6 +124,7 @@ class AppState: ObservableObject {
     
     func stopDetection() {
         
+        print("> stopDetection")
         SystemAudioClassifier.singleton.stopSoundClassification()
         soundDetectionIsRunning = false
     }
@@ -138,32 +139,28 @@ class AppState: ObservableObject {
             let fingerSnappingConfidence = result.classification(forIdentifier: "finger_snapping")?.confidence ?? 0.0
             
             if carHornConfidence > notificationConfidenceThreshold {
-                sendNotification("Car Horn", carHornConfidence)
-                // WKInterfaceDevice.current().play(.notification)
+                sendNotification("📢 Car Horn", carHornConfidence)
             }
             if sirenConfidence > notificationConfidenceThreshold {
-                sendNotification("Siren", sirenConfidence)
+                sendNotification("🚨 Siren", sirenConfidence)
             }
             if smokeDetectorConfidence > notificationConfidenceThreshold {
-                sendNotification("Smoke Detector", smokeDetectorConfidence)
+                sendNotification("🔥 Smoke Detector", smokeDetectorConfidence)
             }
             if screamingConfidence > notificationConfidenceThreshold {
-                sendNotification("Screaming", screamingConfidence)
+                sendNotification("🗣 Screaming", screamingConfidence)
             }
             if fingerSnappingConfidence > notificationConfidenceThreshold {
-                sendNotification("Finger Snapping", fingerSnappingConfidence)
-                // WKInterfaceDevice.current().play(.navigationLeftTurn)
+                sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
             }
         }
 
     }
     
-    func sendNotification(_ title: String, _ confidence: Double) {
-        
-//        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-//        UNUserNotificationCenter.current().setNotificationCategories([category])
-        let center = UNUserNotificationCenter.current()
+    let center = UNUserNotificationCenter.current()
 
+    func requestAuthorization(_ startDetection: Bool) {
+        
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
         center.requestAuthorization(options: options) { (granted, error) in
             if granted {
@@ -171,8 +168,19 @@ class AppState: ObservableObject {
             } else {
                 print(error?.localizedDescription ?? "not granted")
             }
+            if startDetection {
+                self.restartDetection(config: self.appConfig)
+            }
         }
 
+    }
+    func sendNotification(_ title: String, _ confidence: Double) {
+        
+//        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+//        UNUserNotificationCenter.current().setNotificationCategories([category])
+
+        requestAuthorization(false)
+        
         let content = UNMutableNotificationContent()
         content.title = title
         let formatter1 = DateFormatter()
@@ -200,13 +208,10 @@ class AppState: ObservableObject {
         }
         
         if (listeningStateBeforeSend) {
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.restartDetection(config: self.appConfig)
             }
         }
-
-        
     }
 
     /// Updates the detection states according to the latest classification result.

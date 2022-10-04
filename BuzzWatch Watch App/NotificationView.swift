@@ -18,7 +18,7 @@ struct NotificationView: View {
 //                    .scaledToFit()
 //            }
 
-            Text(title ?? "Sound")
+	            Text(title ?? "Sound")
                 .font(.headline)
 
             Divider()

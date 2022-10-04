@@ -32,14 +32,14 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
         // Implement it if you use a dynamic notification interface.
         // Populate your dynamic notification interface as quickly as possible.
 
-        let notificationData =
-            notification.request.content.userInfo as? [String: Any]
+//        let notificationData =
+//            notification.request.content.userInfo as? [String: Any]
 
-        let aps = notificationData?["aps"] as? [String: Any]
-        let alert = aps?["alert"] as? [String: Any]
+//        let aps = notificationData?["aps"] as? [String: Any]
+//        let alert = aps?["alert"] as? [String: Any]
 
-        title = alert?["title"] as? String
-        message = alert?["body"] as? String
+        title = notification.request.content.title
+        message = notification.request.content.body
 
     }
 }

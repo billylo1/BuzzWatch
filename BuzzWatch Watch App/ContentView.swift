@@ -16,67 +16,39 @@ struct ContentView: View {
     /// The runtime state that contains information about the strength of the detected sounds.
     @StateObject var appState = AppState()
     @State var buttonTitle: String = "Start"
+    @State var buttonTint: Color = .blue
+    @State var title = "Ready"
 
     
     var body: some View {
         VStack {
+            Text(title)
+            Divider()
+            Text("🚨 Sirens")
+            Text("📢 Car Horn")
+            Text("🗣 Screaming")
+            Text("🔥 Smoke Detector")
+            Text("🫰 Finger-snapping")
             Button(buttonTitle) {
+                
                 if (appState.soundDetectionIsRunning) {
                     appState.stopDetection()
                     buttonTitle = "Start"
+                    buttonTint = .blue
+                    title = "Ready"
                 } else {
                     appState.restartDetection(config: appConfig)
                     buttonTitle = "Stop"
+                    buttonTint = .green
+                    title = "Listening for"
                 }
-            }
-            Button("Send") {
-                
-                let center = UNUserNotificationCenter.current()
 
-                let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-                center.requestAuthorization(options: options) { (granted, error) in
-                    if granted {
-                        print("granted")
-                    } else {
-                        print(error?.localizedDescription ?? "not granted")
-                    }
-                }
-                
-                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-                UNUserNotificationCenter.current().setNotificationCategories([category])
+            }.tint(buttonTint)
 
-                let content = UNMutableNotificationContent()
-                content.title = "Car horn"
-                let formatter1 = DateFormatter()
-                formatter1.timeStyle = .medium
-                let body = formatter1.string(from: Date.now)
-                content.body = "At \(body)"
-                content.sound = .defaultCritical
-                content.subtitle = "Hello"
-                content.categoryIdentifier = "myCategory"
-                
-                let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
-                
-                let listeningStateBeforeSend = appState.soundDetectionIsRunning
-                appState.stopDetection()
-                
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        print("send")
-                    }
-                }
-                
-                if (listeningStateBeforeSend) {
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        appState.restartDetection(config: appConfig)
-                    }
-                }
-            }
+//
+//            Button("Send") {
+//                appState.sendNotification("Test", 0.5)
+//            }
         }
         .padding()
     }
