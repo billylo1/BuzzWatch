@@ -77,7 +77,7 @@ class AppState: ObservableObject {
     @Published var soundDetectionIsRunning: Bool = false
 
     init() {
-        self.restartDetection(config: appConfig)
+        // self.restartDetection(config: appConfig)
     }
     
     /// Begins detecting sounds according to the configuration you specify.
@@ -122,6 +122,12 @@ class AppState: ObservableObject {
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
     
+    func stopDetection() {
+        
+        SystemAudioClassifier.singleton.stopSoundClassification()
+        soundDetectionIsRunning = false
+    }
+    
     func handleClassification(_ result: SNClassificationResult) {
         
         if -lastNotified.timeIntervalSinceNow > waitTimeBetweenNotifications {
@@ -146,7 +152,7 @@ class AppState: ObservableObject {
             }
             if fingerSnappingConfidence > notificationConfidenceThreshold {
                 sendNotification("Finger Snapping", fingerSnappingConfidence)
-                WKInterfaceDevice.current().play(.navigationLeftTurn)
+                // WKInterfaceDevice.current().play(.navigationLeftTurn)
             }
         }
 
@@ -173,13 +179,17 @@ class AppState: ObservableObject {
         formatter1.timeStyle = .medium
         let body = formatter1.string(from: Date.now)
         content.body = "At \(body)"
-        content.sound = UNNotificationSound.defaultCritical
+        content.sound = .default
         content.categoryIdentifier = "myCategory"
-        content.interruptionLevel = .timeSensitive
+//        content.interruptionLevel = .timeSensitive
         
         let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
+        
+        let listeningStateBeforeSend = soundDetectionIsRunning
+        stopDetection()
+
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print(error.localizedDescription)
@@ -188,6 +198,14 @@ class AppState: ObservableObject {
                 self.lastNotified = Date.now
             }
         }
+        
+        if (listeningStateBeforeSend) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.restartDetection(config: self.appConfig)
+            }
+        }
+
         
     }
 
