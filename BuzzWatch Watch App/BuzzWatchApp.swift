@@ -154,8 +154,8 @@ class AppState: ObservableObject {
     
     func sendNotification(_ title: String, _ confidence: Double) {
         
-        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+//        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+//        UNUserNotificationCenter.current().setNotificationCategories([category])
         let center = UNUserNotificationCenter.current()
 
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -173,7 +173,7 @@ class AppState: ObservableObject {
         formatter1.timeStyle = .medium
         let body = formatter1.string(from: Date.now)
         content.body = "At \(body)"
-        content.sound = UNNotificationSound.default
+        content.sound = UNNotificationSound.defaultCritical
         content.categoryIdentifier = "myCategory"
         content.interruptionLevel = .timeSensitive
         

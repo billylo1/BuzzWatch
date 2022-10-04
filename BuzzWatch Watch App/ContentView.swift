@@ -41,9 +41,9 @@ struct ContentView: View {
                 let body = formatter1.string(from: Date.now)
                 content.body = "At \(body)"
                 content.sound = UNNotificationSound.default
-                content.interruptionLevel = .timeSensitive
+                content.interruptionLevel = .active
                 content.subtitle = "Hello"
-                content.categoryIdentifier = "myCategory1"
+                content.categoryIdentifier = "myCategory"
                 
                 let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
 
