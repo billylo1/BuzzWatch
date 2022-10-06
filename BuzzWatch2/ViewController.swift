@@ -6,21 +6,18 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let defaults = UserDefaults(suiteName: "group.katla")
-        let autostart = defaults?.bool(forKey: "autostart")
-        let confidenceThreshold = defaults?.double(forKey: "confidence_threshold")
-
-        print("\(String(describing: autostart))")
-        print("\(String(describing: confidenceThreshold))")
+    @IBAction func githubLink(_ sender: Any) {
+        
+        if let url = URL(string: "https://github.com/billylo1/BuzzWatch") {
+            let vc = SFSafariViewController(url: url)
+            self.present(vc, animated: true, completion: nil)
+        }
 
     }
-
-
+    
 }
 

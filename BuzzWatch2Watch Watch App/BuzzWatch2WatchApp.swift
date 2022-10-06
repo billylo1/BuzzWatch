@@ -162,6 +162,8 @@ class AppState: ObservableObject {
             }
             if fingerSnappingConfidence > notificationConfidenceThreshold {
                 sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
+//                sendNotification("📢 Car Horn", fingerSnappingConfidence)  // marketing screenshot only
+
             }
         }
 

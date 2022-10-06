@@ -1,10 +1,6 @@
 // - pick category to listen to (default) - phone call?
 // - start button to ask for permissions (recording and notifications)
+// - show icons and confidence level to custom notification (myCategory)
 
 - configurable thresholds and auto-start
-- show icons and confidence level to custom notification (myCategory)
-- log event times
 
-
-Not do-able
-- map to vibration types
