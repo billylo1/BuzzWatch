@@ -7,41 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD082B6328E3A13700B68BAF /* BuzzWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BD082B6228E3A13700B68BAF /* BuzzWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BD082B6828E3A13700B68BAF /* BuzzWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B6728E3A13700B68BAF /* BuzzWatchApp.swift */; };
-		BD082B6A28E3A13700B68BAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B6928E3A13700B68BAF /* ContentView.swift */; };
-		BD082B6C28E3A13800B68BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD082B6B28E3A13800B68BAF /* Assets.xcassets */; };
-		BD082B6F28E3A13800B68BAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD082B6E28E3A13800B68BAF /* Preview Assets.xcassets */; };
-		BD082B7A28E3BAEE00B68BAF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7928E3BAEE00B68BAF /* NotificationController.swift */; };
-		BD082B7C28E3BB8D00B68BAF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */; };
-		BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */; };
-		BDE946FB28EBB99800736ACA /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = BDE946FA28EBB99800736ACA /* TODO.txt */; };
-		BDEEA62E28EBDAE6007CE0A7 /* BuzzWatch-Watch-App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */; };
-		BDF2E82728E7CE3F001CEB60 /* SetupMonitoredSoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */; };
-		BDF2E82828E7CE3F001CEB60 /* SoundIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */; };
-		BDF2E82928E7CE3F001CEB60 /* DetectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */; };
-		BDF2E82B28E7CE3F001CEB60 /* ClassificationResultsSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */; };
-		BDF2E82E28E7CECF001CEB60 /* SystemAudioClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */; };
+		BD2FF92128ECC65D0098A180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92028ECC65D0098A180 /* AppDelegate.swift */; };
+		BD2FF92328ECC65D0098A180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */; };
+		BD2FF92528ECC65D0098A180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92428ECC65D0098A180 /* ViewController.swift */; };
+		BD2FF92828ECC65D0098A180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF92628ECC65D0098A180 /* Main.storyboard */; };
+		BD2FF92A28ECC65D0098A180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF92928ECC65D0098A180 /* Assets.xcassets */; };
+		BD2FF92D28ECC65D0098A180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF92B28ECC65D0098A180 /* LaunchScreen.storyboard */; };
+		BD2FF93928ECC8E50098A180 /* BuzzWatch2WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF93828ECC8E50098A180 /* BuzzWatch2WatchApp.swift */; };
+		BD2FF93B28ECC8E50098A180 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF93A28ECC8E50098A180 /* ContentView.swift */; };
+		BD2FF93D28ECC8E50098A180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF93C28ECC8E50098A180 /* Assets.xcassets */; };
+		BD2FF94028ECC8E50098A180 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF93F28ECC8E50098A180 /* Preview Assets.xcassets */; };
+		BD2FF94328ECC8E50098A180 /* BuzzWatch2Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BD2FF93628ECC8E50098A180 /* BuzzWatch2Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BD2FF9AC28ECF2550098A180 /* SoundIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */; };
+		BD2FF9AD28ECF2550098A180 /* DetectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */; };
+		BD2FF9AE28ECF2550098A180 /* SetupMonitoredSoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */; };
+		BD2FF9AF28ECF2550098A180 /* ClassificationResultsSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */; };
+		BD2FF9B028ECF2550098A180 /* SystemAudioClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */; };
+		BD2FF9B128ECF2550098A180 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7928E3BAEE00B68BAF /* NotificationController.swift */; };
+		BD2FF9B228ECF2550098A180 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */; };
+		BD2FF9B928ECFB5E0098A180 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF9B828ECFB5E0098A180 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BD082B6428E3A13700B68BAF /* PBXContainerItemProxy */ = {
+		BD2FF94128ECC8E50098A180 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD082B5628E3A13700B68BAF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BD082B6128E3A13700B68BAF;
-			remoteInfo = "BuzzWatch Watch App";
+			remoteGlobalIDString = BD2FF93528ECC8E40098A180;
+			remoteInfo = "BuzzWatch2Watch Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BD082B7528E3A13800B68BAF /* Embed Watch Content */ = {
+		BD2FF94728ECC8E60098A180 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				BD082B6328E3A13700B68BAF /* BuzzWatch Watch App.app in Embed Watch Content */,
+				BD2FF94328ECC8E50098A180 /* BuzzWatch2Watch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,17 +53,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BD082B5C28E3A13700B68BAF /* BuzzWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzzWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD082B6228E3A13700B68BAF /* BuzzWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuzzWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD082B6728E3A13700B68BAF /* BuzzWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuzzWatchApp.swift; sourceTree = "<group>"; };
-		BD082B6928E3A13700B68BAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BD082B6B28E3A13800B68BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD082B6E28E3A13800B68BAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD082B7928E3BAEE00B68BAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		BD5DA6A728EBC93D002D162C /* BuzzWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzWatch Watch App.entitlements"; sourceTree = "<group>"; };
-		BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BuzzWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BD2FF91E28ECC65D0098A180 /* BuzzWatch2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzzWatch2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2FF92028ECC65D0098A180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD2FF92428ECC65D0098A180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD2FF92728ECC65D0098A180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD2FF92928ECC65D0098A180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD2FF92C28ECC65D0098A180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD2FF92E28ECC65D0098A180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD2FF93628ECC8E50098A180 /* BuzzWatch2Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BuzzWatch2Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD2FF93828ECC8E50098A180 /* BuzzWatch2WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuzzWatch2WatchApp.swift; sourceTree = "<group>"; };
+		BD2FF93A28ECC8E50098A180 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD2FF93C28ECC8E50098A180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD2FF93F28ECC8E50098A180 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD2FF9AA28ECF1DE0098A180 /* BuzzWatch2Watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuzzWatch2Watch Watch App.entitlements"; sourceTree = "<group>"; };
+		BD2FF9AB28ECF1FC0098A180 /* BuzzWatch2Watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BuzzWatch2Watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BD2FF9B528ECF64C0098A180 /* BuzzWatch2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuzzWatch2.entitlements; sourceTree = "<group>"; };
+		BD2FF9B828ECFB5E0098A180 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BDE946FA28EBB99800736ACA /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupMonitoredSoundsView.swift; sourceTree = "<group>"; };
 		BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundIdentifier.swift; sourceTree = "<group>"; };
@@ -69,7 +82,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BD082B5F28E3A13700B68BAF /* Frameworks */ = {
+		BD2FF91B28ECC65D0098A180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD2FF93328ECC8E40098A180 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,7 +102,8 @@
 		BD082B5528E3A13700B68BAF = {
 			isa = PBXGroup;
 			children = (
-				BD082B6628E3A13700B68BAF /* BuzzWatch Watch App */,
+				BD2FF91F28ECC65D0098A180 /* BuzzWatch2 */,
+				BD2FF93728ECC8E50098A180 /* BuzzWatch2Watch Watch App */,
 				BD082B5D28E3A13700B68BAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,22 +111,32 @@
 		BD082B5D28E3A13700B68BAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD082B5C28E3A13700B68BAF /* BuzzWatch.app */,
-				BD082B6228E3A13700B68BAF /* BuzzWatch Watch App.app */,
+				BD2FF91E28ECC65D0098A180 /* BuzzWatch2.app */,
+				BD2FF93628ECC8E50098A180 /* BuzzWatch2Watch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD082B6628E3A13700B68BAF /* BuzzWatch Watch App */ = {
+		BD2FF91F28ECC65D0098A180 /* BuzzWatch2 */ = {
 			isa = PBXGroup;
 			children = (
-				BD5DA6A728EBC93D002D162C /* BuzzWatch Watch App.entitlements */,
+				BD2FF9B528ECF64C0098A180 /* BuzzWatch2.entitlements */,
+				BD2FF92028ECC65D0098A180 /* AppDelegate.swift */,
+				BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */,
+				BD2FF92428ECC65D0098A180 /* ViewController.swift */,
+				BD2FF92628ECC65D0098A180 /* Main.storyboard */,
+				BD2FF92928ECC65D0098A180 /* Assets.xcassets */,
+				BD2FF92B28ECC65D0098A180 /* LaunchScreen.storyboard */,
+				BD2FF92E28ECC65D0098A180 /* Info.plist */,
+				BD2FF9B828ECFB5E0098A180 /* Settings.bundle */,
+			);
+			path = BuzzWatch2;
+			sourceTree = "<group>";
+		};
+		BD2FF93728ECC8E50098A180 /* BuzzWatch2Watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
 				BDE946FA28EBB99800736ACA /* TODO.txt */,
-				BD8BFA5228E7D56400F79535 /* BuzzWatch-Watch-App-Info.plist */,
-				BD082B6728E3A13700B68BAF /* BuzzWatchApp.swift */,
-				BD082B6928E3A13700B68BAF /* ContentView.swift */,
-				BD082B6B28E3A13800B68BAF /* Assets.xcassets */,
-				BD082B6D28E3A13800B68BAF /* Preview Content */,
 				BD082B7928E3BAEE00B68BAF /* NotificationController.swift */,
 				BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */,
 				BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */,
@@ -114,14 +145,20 @@
 				BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */,
 				BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */,
 				BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */,
+				BD2FF9AB28ECF1FC0098A180 /* BuzzWatch2Watch-Watch-App-Info.plist */,
+				BD2FF9AA28ECF1DE0098A180 /* BuzzWatch2Watch Watch App.entitlements */,
+				BD2FF93828ECC8E50098A180 /* BuzzWatch2WatchApp.swift */,
+				BD2FF93A28ECC8E50098A180 /* ContentView.swift */,
+				BD2FF93C28ECC8E50098A180 /* Assets.xcassets */,
+				BD2FF93E28ECC8E50098A180 /* Preview Content */,
 			);
-			path = "BuzzWatch Watch App";
+			path = "BuzzWatch2Watch Watch App";
 			sourceTree = "<group>";
 		};
-		BD082B6D28E3A13800B68BAF /* Preview Content */ = {
+		BD2FF93E28ECC8E50098A180 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				BD082B6E28E3A13800B68BAF /* Preview Assets.xcassets */,
+				BD2FF93F28ECC8E50098A180 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -129,38 +166,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD082B5B28E3A13700B68BAF /* BuzzWatch */ = {
+		BD2FF91D28ECC65D0098A180 /* BuzzWatch2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD082B7628E3A13800B68BAF /* Build configuration list for PBXNativeTarget "BuzzWatch" */;
+			buildConfigurationList = BD2FF93128ECC65D0098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2" */;
 			buildPhases = (
-				BD082B5A28E3A13700B68BAF /* Resources */,
-				BD082B7528E3A13800B68BAF /* Embed Watch Content */,
+				BD2FF91A28ECC65D0098A180 /* Sources */,
+				BD2FF91B28ECC65D0098A180 /* Frameworks */,
+				BD2FF91C28ECC65D0098A180 /* Resources */,
+				BD2FF94728ECC8E60098A180 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BD082B6528E3A13700B68BAF /* PBXTargetDependency */,
+				BD2FF94228ECC8E50098A180 /* PBXTargetDependency */,
 			);
-			name = BuzzWatch;
-			productName = BuzzWatch;
-			productReference = BD082B5C28E3A13700B68BAF /* BuzzWatch.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
+			name = BuzzWatch2;
+			productName = BuzzWatch2;
+			productReference = BD2FF91E28ECC65D0098A180 /* BuzzWatch2.app */;
+			productType = "com.apple.product-type.application";
 		};
-		BD082B6128E3A13700B68BAF /* BuzzWatch Watch App */ = {
+		BD2FF93528ECC8E40098A180 /* BuzzWatch2Watch Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD082B7228E3A13800B68BAF /* Build configuration list for PBXNativeTarget "BuzzWatch Watch App" */;
+			buildConfigurationList = BD2FF94428ECC8E60098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2Watch Watch App" */;
 			buildPhases = (
-				BD082B5E28E3A13700B68BAF /* Sources */,
-				BD082B5F28E3A13700B68BAF /* Frameworks */,
-				BD082B6028E3A13700B68BAF /* Resources */,
+				BD2FF93228ECC8E40098A180 /* Sources */,
+				BD2FF93328ECC8E40098A180 /* Frameworks */,
+				BD2FF93428ECC8E40098A180 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "BuzzWatch Watch App";
-			productName = "BuzzWatch Watch App";
-			productReference = BD082B6228E3A13700B68BAF /* BuzzWatch Watch App.app */;
+			name = "BuzzWatch2Watch Watch App";
+			productName = "BuzzWatch2Watch Watch App";
+			productReference = BD2FF93628ECC8E50098A180 /* BuzzWatch2Watch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,10 +212,10 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					BD082B5B28E3A13700B68BAF = {
+					BD2FF91D28ECC65D0098A180 = {
 						CreatedOnToolsVersion = 14.0;
 					};
-					BD082B6128E3A13700B68BAF = {
+					BD2FF93528ECC8E40098A180 = {
 						CreatedOnToolsVersion = 14.0;
 					};
 				};
@@ -194,60 +233,90 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD082B5B28E3A13700B68BAF /* BuzzWatch */,
-				BD082B6128E3A13700B68BAF /* BuzzWatch Watch App */,
+				BD2FF91D28ECC65D0098A180 /* BuzzWatch2 */,
+				BD2FF93528ECC8E40098A180 /* BuzzWatch2Watch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BD082B5A28E3A13700B68BAF /* Resources */ = {
+		BD2FF91C28ECC65D0098A180 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDEEA62E28EBDAE6007CE0A7 /* BuzzWatch-Watch-App-Info.plist in Resources */,
+				BD2FF9B928ECFB5E0098A180 /* Settings.bundle in Resources */,
+				BD2FF92D28ECC65D0098A180 /* LaunchScreen.storyboard in Resources */,
+				BD2FF92A28ECC65D0098A180 /* Assets.xcassets in Resources */,
+				BD2FF92828ECC65D0098A180 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD082B6028E3A13700B68BAF /* Resources */ = {
+		BD2FF93428ECC8E40098A180 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDE946FB28EBB99800736ACA /* TODO.txt in Resources */,
-				BD082B6F28E3A13800B68BAF /* Preview Assets.xcassets in Resources */,
-				BD082B6C28E3A13800B68BAF /* Assets.xcassets in Resources */,
-				BD082B7E28E3C17700B68BAF /* PushNotificationPayload.apns in Resources */,
+				BD2FF94028ECC8E50098A180 /* Preview Assets.xcassets in Resources */,
+				BD2FF93D28ECC8E50098A180 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BD082B5E28E3A13700B68BAF /* Sources */ = {
+		BD2FF91A28ECC65D0098A180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF2E82828E7CE3F001CEB60 /* SoundIdentifier.swift in Sources */,
-				BDF2E82B28E7CE3F001CEB60 /* ClassificationResultsSubject.swift in Sources */,
-				BD082B6A28E3A13700B68BAF /* ContentView.swift in Sources */,
-				BDF2E82728E7CE3F001CEB60 /* SetupMonitoredSoundsView.swift in Sources */,
-				BD082B6828E3A13700B68BAF /* BuzzWatchApp.swift in Sources */,
-				BD082B7A28E3BAEE00B68BAF /* NotificationController.swift in Sources */,
-				BD082B7C28E3BB8D00B68BAF /* NotificationView.swift in Sources */,
-				BDF2E82928E7CE3F001CEB60 /* DetectionState.swift in Sources */,
-				BDF2E82E28E7CECF001CEB60 /* SystemAudioClassifier.swift in Sources */,
+				BD2FF92528ECC65D0098A180 /* ViewController.swift in Sources */,
+				BD2FF92128ECC65D0098A180 /* AppDelegate.swift in Sources */,
+				BD2FF92328ECC65D0098A180 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD2FF93228ECC8E40098A180 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD2FF9AC28ECF2550098A180 /* SoundIdentifier.swift in Sources */,
+				BD2FF9AE28ECF2550098A180 /* SetupMonitoredSoundsView.swift in Sources */,
+				BD2FF9B128ECF2550098A180 /* NotificationController.swift in Sources */,
+				BD2FF93B28ECC8E50098A180 /* ContentView.swift in Sources */,
+				BD2FF93928ECC8E50098A180 /* BuzzWatch2WatchApp.swift in Sources */,
+				BD2FF9B028ECF2550098A180 /* SystemAudioClassifier.swift in Sources */,
+				BD2FF9AD28ECF2550098A180 /* DetectionState.swift in Sources */,
+				BD2FF9AF28ECF2550098A180 /* ClassificationResultsSubject.swift in Sources */,
+				BD2FF9B228ECF2550098A180 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BD082B6528E3A13700B68BAF /* PBXTargetDependency */ = {
+		BD2FF94228ECC8E50098A180 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD082B6128E3A13700B68BAF /* BuzzWatch Watch App */;
-			targetProxy = BD082B6428E3A13700B68BAF /* PBXContainerItemProxy */;
+			target = BD2FF93528ECC8E40098A180 /* BuzzWatch2Watch Watch App */;
+			targetProxy = BD2FF94128ECC8E50098A180 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD2FF92628ECC65D0098A180 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD2FF92728ECC65D0098A180 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD2FF92B28ECC65D0098A180 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD2FF92C28ECC65D0098A180 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BD082B7028E3A13800B68BAF /* Debug */ = {
@@ -361,109 +430,139 @@
 			};
 			name = Release;
 		};
-		BD082B7328E3A13800B68BAF /* Debug */ = {
+		BD2FF92F28ECC65D0098A180 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "BuzzWatch Watch App/BuzzWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = BuzzWatch2/BuzzWatch2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
-				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch Watch App/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BuzzWatch-Watch-App-Info.plist";
+				INFOPLIST_FILE = BuzzWatch2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important event";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		BD082B7428E3A13800B68BAF /* Release */ = {
+		BD2FF93028ECC65D0098A180 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "BuzzWatch Watch App/BuzzWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = BuzzWatch2/BuzzWatch2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
-				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch Watch App/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BuzzWatch-Watch-App-Info.plist";
+				INFOPLIST_FILE = BuzzWatch2/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important event";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
-		BD082B7728E3A13800B68BAF /* Debug */ = {
+		BD2FF94528ECC8E60098A180 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzWatch2Watch Watch App/BuzzWatch2Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 31;
+				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch2Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = F6X27PB5BH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important events1";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
-		BD082B7828E3A13800B68BAF /* Release */ = {
+		BD2FF94628ECC8E60098A180 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BuzzWatch2Watch Watch App/BuzzWatch2Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 31;
+				DEVELOPMENT_ASSET_PATHS = "\"BuzzWatch2Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = F6X27PB5BH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify users of important events1";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
@@ -479,20 +578,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD082B7228E3A13800B68BAF /* Build configuration list for PBXNativeTarget "BuzzWatch Watch App" */ = {
+		BD2FF93128ECC65D0098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD082B7328E3A13800B68BAF /* Debug */,
-				BD082B7428E3A13800B68BAF /* Release */,
+				BD2FF92F28ECC65D0098A180 /* Debug */,
+				BD2FF93028ECC65D0098A180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD082B7628E3A13800B68BAF /* Build configuration list for PBXNativeTarget "BuzzWatch" */ = {
+		BD2FF94428ECC8E60098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2Watch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD082B7728E3A13800B68BAF /* Debug */,
-				BD082B7828E3A13800B68BAF /* Release */,
+				BD2FF94528ECC8E60098A180 /* Debug */,
+				BD2FF94628ECC8E60098A180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

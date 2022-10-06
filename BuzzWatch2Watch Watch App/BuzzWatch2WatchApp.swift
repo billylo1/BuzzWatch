@@ -1,4 +1,11 @@
 //
+//  BuzzWatch2WatchApp.swift
+//  BuzzWatch2Watch Watch App
+//
+//  Created by Billy Lo on 2022-10-04.
+//
+
+//
 //  BuzzWatchApp.swift
 //  BuzzWatch Watch App
 //
@@ -76,8 +83,10 @@ class AppState: ObservableObject {
     /// the user to restart classification when `false.`
     @Published var soundDetectionIsRunning: Bool = false
 
+    let notificationDelegate = NotificationDelegate()
     init() {
-        // self.restartDetection(config: appConfig)
+         // self.restartDetection(config: appConfig)
+        UNUserNotificationCenter.current().delegate = notificationDelegate
     }
     
     /// Begins detecting sounds according to the configuration you specify.
@@ -86,6 +95,7 @@ class AppState: ObservableObject {
     ///
     /// - Parameter config: A configuration that provides information for performing sound detection.
     func restartDetection(config: AppConfiguration) {
+        
         SystemAudioClassifier.singleton.stopSoundClassification()
 
         let classificationSubject = PassthroughSubject<SNClassificationResult, Error>()
@@ -176,8 +186,10 @@ class AppState: ObservableObject {
     }
     func sendNotification(_ title: String, _ confidence: Double) {
         
-//        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-//        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+        
+        let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
 
         requestAuthorization(false)
         
@@ -185,8 +197,8 @@ class AppState: ObservableObject {
         content.title = title
         let formatter1 = DateFormatter()
         formatter1.timeStyle = .medium
-        let body = formatter1.string(from: Date.now)
-        content.body = "At \(body)"
+        let subtitle = String(format: "%.0f", confidence*100)
+        content.subtitle = subtitle
         content.sound = .defaultCritical
         content.categoryIdentifier = "myCategory"
         content.interruptionLevel = .timeSensitive
@@ -240,13 +252,23 @@ class AppState: ObservableObject {
     }
 }
 
+class NotificationDelegate : NSObject, UNUserNotificationCenterDelegate {    // In order to show a notification in banner mode, `completionHandler` must be called with suitable option here
+    override init() {
+        super.init()
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("userNotificationCenter - willPresent")
+        completionHandler([.banner, .sound])
+    }
+}
+
 @main
-struct BuzzWatch_Watch_AppApp: App {
+struct BuzzWatch2Watch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
-
     }
+
 }

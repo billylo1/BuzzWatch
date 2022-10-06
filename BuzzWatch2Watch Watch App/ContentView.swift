@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UserNotifications
-
+import Foundation
 struct ContentView: View {
     
     /// A configuration for managing the characteristics of a sound classification task.
@@ -41,6 +41,7 @@ struct ContentView: View {
                     buttonTitle = "Stop"
                     buttonTint = .green
                     title = "Listening for"
+
                 }
 
             }.tint(buttonTint)

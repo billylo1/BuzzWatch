@@ -9,13 +9,15 @@ import WatchKit
 import SwiftUI
 import UserNotifications
 
-class NotificationController: WKUserNotificationHostingController<NotificationView> {
-    var title: String?
-    var message: String?
-    
+class NotificationController: WKUserNotificationHostingController<NotificationView>  {
+    var emoji: String?
+    var soundTypeAndConfidence: String?
+    var eventDate: Date?
+
     override var body: NotificationView {
-        NotificationView(title: title,
-            message: message)    }
+        NotificationView(emoji: emoji,
+                         soundTypeAndConfidence: soundTypeAndConfidence,
+                         eventDate: eventDate)    }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -38,8 +40,17 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
 //        let aps = notificationData?["aps"] as? [String: Any]
 //        let alert = aps?["alert"] as? [String: Any]
 
-        title = notification.request.content.title
-        message = notification.request.content.body
+        // title is the emoji
+        // message is the  sound type (confidence level)
+        
+        print("didReceive")
+        let title = notification.request.content.title
+        let fromIndex = title.index(title.startIndex, offsetBy: 2)
+                                                  
+        emoji = String(notification.request.content.title.prefix(1))
+        soundTypeAndConfidence = "\(String(title.suffix(from: fromIndex))) \(notification.request.content.subtitle)%"
+        eventDate = .now
 
     }
+    
 }
