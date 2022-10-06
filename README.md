@@ -11,6 +11,8 @@ Optimized for privacy
 - No audio recording
 - Supports sirens, car horns, screaming and smoke alarm sounds.
 
+Optimized for low-power consumption (< 5% impact to battery life)
+
 Hope this helps.
 
 Your contributions to help the hearing impaired are always welcome!
