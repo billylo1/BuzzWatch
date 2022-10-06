@@ -19,7 +19,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number(xcodeproj: "BuzzWatch.xcodeproj")
-    build_app(scheme: "BuzzWatch Watch App", destination: "generic/platform=watchOS")
-    upload_to_testflight(app_identifier: "com.evergreenlabs.BuzzWatch2", uses_non_exempt_encryption: false, skip_waiting_for_build_processing: true)
+    build_app(scheme: "BuzzWatch2")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
   end
 end

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to BuzzWatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-43-1Q4">
-                                <rect key="frame" x="52.666666666666657" y="89" width="285" height="31.333333333333329"/>
+                                <rect key="frame" x="52.666666666666657" y="123.33333333333333" width="285" height="31.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,36 +30,36 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listens for important sounds and alert you with visual and vibrations to assist the hearing impaired" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mj-l3-Hgs">
-                                <rect key="frame" x="30" y="160.33333333333334" width="330" height="71.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="30" y="174.66666666666666" width="330" height="57.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-cB-Xx9">
-                                <rect key="frame" x="30" y="586.33333333333337" width="330" height="142.33333333333337"/>
+                                <rect key="frame" x="30" y="577.33333333333337" width="330" height="125.33333333333337"/>
                                 <string key="text">On device analysis only
 No network usage
 No audio recording
 Source code is published 
 Supports sirens, car horns, screaming and smoke alarm sounds.</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optimized for privacy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u62-hi-OzT">
-                                <rect key="frame" x="82.666666666666686" y="532" width="225" height="24.333333333333371"/>
+                                <rect key="frame" x="82.666666666666686" y="532" width="225" height="25.333333333333371"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-GX-AkK">
-                                <rect key="frame" x="195" y="748.66666666666663" width="0.0" height="0.0"/>
+                                <rect key="frame" x="195" y="722.66666666666663" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bT-dU-m3b">
-                                <rect key="frame" x="67" y="738.66666666666663" width="256" height="35"/>
+                                <rect key="frame" x="67" y="712.66666666666663" width="256" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="github.com/billylo1/BuzzWatch"/>
                                 <connections>
@@ -79,13 +79,13 @@ Supports sirens, car horns, screaming and smoke alarm sounds.</string>
                             <constraint firstItem="Z9y-cB-Xx9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="RqA-qa-xom"/>
                             <constraint firstItem="2Mj-l3-Hgs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="U0y-4a-tBH"/>
                             <constraint firstItem="Wd0-43-1Q4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZIp-EG-YEr"/>
-                            <constraint firstItem="Z9y-cB-Xx9" firstAttribute="top" secondItem="u62-hi-OzT" secondAttribute="bottom" constant="30" id="erk-7Q-ie4"/>
+                            <constraint firstItem="Z9y-cB-Xx9" firstAttribute="top" secondItem="u62-hi-OzT" secondAttribute="bottom" constant="20" id="erk-7Q-ie4"/>
                             <constraint firstAttribute="trailing" secondItem="Z9y-cB-Xx9" secondAttribute="trailing" constant="30" id="kgQ-Ir-9GZ"/>
                             <constraint firstItem="JBy-E1-sBp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lqw-gc-evB"/>
                             <constraint firstItem="2bT-dU-m3b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ngH-Un-aqw"/>
                             <constraint firstAttribute="trailing" secondItem="2Mj-l3-Hgs" secondAttribute="trailing" constant="30" id="qUm-TA-eYm"/>
                             <constraint firstItem="JBy-E1-sBp" firstAttribute="top" secondItem="2Mj-l3-Hgs" secondAttribute="bottom" id="ufS-84-9a2"/>
-                            <constraint firstItem="2Mj-l3-Hgs" firstAttribute="top" secondItem="Wd0-43-1Q4" secondAttribute="bottom" constant="40" id="z9x-UV-HrN"/>
+                            <constraint firstItem="2Mj-l3-Hgs" firstAttribute="top" secondItem="Wd0-43-1Q4" secondAttribute="bottom" constant="20" id="z9x-UV-HrN"/>
                         </constraints>
                     </view>
                 </viewController>
