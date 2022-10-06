@@ -11,4 +11,6 @@ Optimized for privacy
 - No audio recording
 - Supports sirens, car horns, screaming and smoke alarm sounds.
 
-Your additional contributions to help the hearing impaired will be much appreciated!
+Hope this helps.
+
+Your contributions to help the hearing impaired are always welcome!
