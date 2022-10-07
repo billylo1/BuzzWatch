@@ -160,7 +160,7 @@ class AppState: ObservableObject {
             if screamingConfidence > notificationConfidenceThreshold {
                 sendNotification("🗣 Screaming", screamingConfidence)
             }
-            if fingerSnappingConfidence > notificationConfidenceThreshold {
+            if fingerSnappingConfidence > 0.95 {        // special setting to minimize false positives
                 sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
 //                sendNotification("📢 Car Horn", fingerSnappingConfidence)  // marketing screenshot only
 
