@@ -128,7 +128,7 @@ class AppState: ObservableObject {
           overlapFactor: config.overlapFactor)
     }
 
-    let notificationConfidenceThreshold = 0.6
+    let notificationConfidenceThreshold = 0.8
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
     
