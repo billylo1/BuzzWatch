@@ -16,6 +16,7 @@ import SwiftUI
 import Combine
 import SoundAnalysis
 import UserNotifications
+import WatchConnectivity
 
 /// Contains customizable settings that control app behavior.
 struct AppConfiguration {
@@ -61,7 +62,7 @@ struct AppConfiguration {
 /// `DetectSoundsView` renders. It incorporates new classification results as the app produces them into
 /// the cumulative understanding of what sounds are currently present. It tracks interruptions, and allows for
 /// restarting an analysis by providing a new configuration.
-class AppState: ObservableObject {
+class AppState: ObservableObject, SessionCommands {
     /// A cancellable object for the lifetime of the sound classification.
     ///
     /// While the app retains this cancellable object, a sound classification task continues to run until it
@@ -83,11 +84,46 @@ class AppState: ObservableObject {
     /// the user to restart classification when `false.`
     @Published var soundDetectionIsRunning: Bool = false
 
+    private var command: Command!
+    private lazy var sessionDelegator: SessionDelegator = {
+        return SessionDelegator()
+    }()
+
+
+
     let notificationDelegate = NotificationDelegate()
     init() {
          // self.restartDetection(config: appConfig)
         UNUserNotificationCenter.current().delegate = notificationDelegate
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).dataDidFlow(_:)),
+            name: .dataDidFlow, object: nil
+        )
+        assert(WCSession.isSupported(), "This sample requires a platform supporting Watch Connectivity!")
+                
+        WCSession.default.delegate = sessionDelegator
+        WCSession.default.activate()
+        print("< init()")
     }
+    
+    
+    // .dataDidFlow notification handler. Update the UI with the command status.
+    //
+    @objc
+    func dataDidFlow(_ notification: Notification) {
+        
+        print("dataDidFlow")
+        guard let commandStatus = notification.object as? CommandStatus else { return }
+        
+        // If the data is from the current channel, simply update color and time stamp, then return.
+        //
+        if commandStatus.command == command {
+//            updateUI(with: commandStatus, errorMessage: commandStatus.errorMessage)
+            return
+        }
+        
+    }
+
     
     /// Begins detecting sounds according to the configuration you specify.
     ///
@@ -120,12 +156,13 @@ class AppState: ObservableObject {
                                      absenceMeasurementsToEndDetection: 30))
           }
 
-        soundDetectionIsRunning = true
         appConfig = config
         SystemAudioClassifier.singleton.startSoundClassification(
           subject: classificationSubject,
           inferenceWindowSize: config.inferenceWindowSize,
           overlapFactor: config.overlapFactor)
+        soundDetectionIsRunning = true
+
     }
 
     let notificationConfidenceThreshold = 0.8

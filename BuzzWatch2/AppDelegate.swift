@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private lazy var sessionDelegator: SessionDelegator = {
+        return SessionDelegator()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Trigger WCSession activation at the early phase of app launching.
+        //
+        assert(WCSession.isSupported(), "This sample requires Watch Connectivity support!")
+        WCSession.default.delegate = sessionDelegator
+        WCSession.default.activate()
+
         return true
     }
 

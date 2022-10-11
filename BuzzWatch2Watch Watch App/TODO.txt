@@ -2,5 +2,8 @@
 // - start button to ask for permissions (recording and notifications)
 // - show icons and confidence level to custom notification (myCategory)
 
+- sometimes it doesn't resume after a notification?
+- move % sign to payload
+- 
 - configurable thresholds and auto-start
 

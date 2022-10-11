@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1809F528F4DFB700F9441C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EE28F4DFAB00F9441C /* Logger.swift */; };
+		BD1809F628F4DFB700F9441C /* SessionTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */; };
+		BD1809F728F4DFB700F9441C /* CommandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F028F4DFAB00F9441C /* CommandStatus.swift */; };
+		BD1809F828F4DFB700F9441C /* FileTransferObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */; };
+		BD1809F928F4DFB700F9441C /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */; };
+		BD1809FA28F4DFB700F9441C /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F328F4DFAB00F9441C /* SessionDelegator.swift */; };
+		BD1809FB28F4DFB700F9441C /* SessionCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F428F4DFAB00F9441C /* SessionCommands.swift */; };
+		BD1809FC28F4E95600F9441C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EE28F4DFAB00F9441C /* Logger.swift */; };
+		BD1809FD28F4E95600F9441C /* SessionTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */; };
+		BD1809FE28F4E95600F9441C /* CommandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F028F4DFAB00F9441C /* CommandStatus.swift */; };
+		BD1809FF28F4E95600F9441C /* FileTransferObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */; };
+		BD180A0028F4E95600F9441C /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */; };
+		BD180A0128F4E95600F9441C /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F328F4DFAB00F9441C /* SessionDelegator.swift */; };
+		BD180A0228F4E95600F9441C /* SessionCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F428F4DFAB00F9441C /* SessionCommands.swift */; };
 		BD2FF92128ECC65D0098A180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92028ECC65D0098A180 /* AppDelegate.swift */; };
 		BD2FF92328ECC65D0098A180 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */; };
 		BD2FF92528ECC65D0098A180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2FF92428ECC65D0098A180 /* ViewController.swift */; };
@@ -56,6 +70,13 @@
 		BD082B7928E3BAEE00B68BAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		BD1809EE28F4DFAB00F9441C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTransfer.swift; sourceTree = "<group>"; };
+		BD1809F028F4DFAB00F9441C /* CommandStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandStatus.swift; sourceTree = "<group>"; };
+		BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTransferObservers.swift; sourceTree = "<group>"; };
+		BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataProvider.swift; sourceTree = "<group>"; };
+		BD1809F328F4DFAB00F9441C /* SessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegator.swift; sourceTree = "<group>"; };
+		BD1809F428F4DFAB00F9441C /* SessionCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCommands.swift; sourceTree = "<group>"; };
 		BD2FF91E28ECC65D0098A180 /* BuzzWatch2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuzzWatch2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2FF92028ECC65D0098A180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +123,7 @@
 		BD082B5528E3A13700B68BAF = {
 			isa = PBXGroup;
 			children = (
+				BD1809ED28F4DFAB00F9441C /* Shared */,
 				BD2FF91F28ECC65D0098A180 /* BuzzWatch2 */,
 				BD2FF93728ECC8E50098A180 /* BuzzWatch2Watch Watch App */,
 				BD082B5D28E3A13700B68BAF /* Products */,
@@ -115,6 +137,20 @@
 				BD2FF93628ECC8E50098A180 /* BuzzWatch2Watch Watch App.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BD1809ED28F4DFAB00F9441C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BD1809EE28F4DFAB00F9441C /* Logger.swift */,
+				BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */,
+				BD1809F028F4DFAB00F9441C /* CommandStatus.swift */,
+				BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */,
+				BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */,
+				BD1809F328F4DFAB00F9441C /* SessionDelegator.swift */,
+				BD1809F428F4DFAB00F9441C /* SessionCommands.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		BD2FF91F28ECC65D0098A180 /* BuzzWatch2 */ = {
@@ -267,6 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1809F528F4DFB700F9441C /* Logger.swift in Sources */,
+				BD1809F628F4DFB700F9441C /* SessionTransfer.swift in Sources */,
+				BD1809F728F4DFB700F9441C /* CommandStatus.swift in Sources */,
+				BD1809F828F4DFB700F9441C /* FileTransferObservers.swift in Sources */,
+				BD1809F928F4DFB700F9441C /* TestDataProvider.swift in Sources */,
+				BD1809FA28F4DFB700F9441C /* SessionDelegator.swift in Sources */,
+				BD1809FB28F4DFB700F9441C /* SessionCommands.swift in Sources */,
 				BD2FF92528ECC65D0098A180 /* ViewController.swift in Sources */,
 				BD2FF92128ECC65D0098A180 /* AppDelegate.swift in Sources */,
 				BD2FF92328ECC65D0098A180 /* SceneDelegate.swift in Sources */,
@@ -277,6 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1809FC28F4E95600F9441C /* Logger.swift in Sources */,
+				BD1809FD28F4E95600F9441C /* SessionTransfer.swift in Sources */,
+				BD1809FE28F4E95600F9441C /* CommandStatus.swift in Sources */,
+				BD1809FF28F4E95600F9441C /* FileTransferObservers.swift in Sources */,
+				BD180A0028F4E95600F9441C /* TestDataProvider.swift in Sources */,
+				BD180A0128F4E95600F9441C /* SessionDelegator.swift in Sources */,
+				BD180A0228F4E95600F9441C /* SessionCommands.swift in Sources */,
 				BD2FF9AC28ECF2550098A180 /* SoundIdentifier.swift in Sources */,
 				BD2FF9AE28ECF2550098A180 /* SetupMonitoredSoundsView.swift in Sources */,
 				BD2FF9B128ECF2550098A180 /* NotificationController.swift in Sources */,
