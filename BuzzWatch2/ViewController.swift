@@ -84,6 +84,30 @@ class ViewController: UIViewController, SessionCommands {
         
     }
     
+    @IBAction func generateAction(_ sender: Any) {
+        do {
+            let soundIdentifiers = try SystemAudioClassifier.getAllPossibleLabels()
+            for soundIdentifier in soundIdentifiers.sorted() {
+                let displayName = SoundIdentifier(labelName: soundIdentifier).displayName
+                let output = """
+                <dict>
+                    <key>Type</key>
+                    <string>PSToggleSwitchSpecifier</string>
+                    <key>Title</key>
+                    <string>\(displayName)</string>
+                    <key>Key</key>
+                    <string>\(soundIdentifier)</string>
+                </dict>
+                
+                """
+                print(output)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+    }
     func updateAppContext() {
         
         print("updateAppContext")

@@ -1,0 +1,6 @@
+framework module Pods_BuzzWatch2 {
+  umbrella header "Pods-BuzzWatch2-umbrella.h"
+
+  export *
+  module * { export * }
+}

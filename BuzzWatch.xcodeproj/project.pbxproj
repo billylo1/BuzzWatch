@@ -40,6 +40,12 @@
 		BD2FF9B128ECF2550098A180 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7928E3BAEE00B68BAF /* NotificationController.swift */; };
 		BD2FF9B228ECF2550098A180 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */; };
 		BD2FF9B928ECFB5E0098A180 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD2FF9B828ECFB5E0098A180 /* Settings.bundle */; };
+		BD6AECD229038E7400CA29F0 /* ClassificationResultsSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */; };
+		BD959C2228FCE448006EB47A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD959C2128FCE448006EB47A /* SettingsViewController.swift */; };
+		BD98689928FF7D3B00E513DF /* SystemAudioClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */; };
+		BD98689A28FF7E4400E513DF /* SoundIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */; };
+		E00C79E8F350FC98371A131B /* Pods_BuzzWatch2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C8A62EB5FC9DC07EE48D6 /* Pods_BuzzWatch2.framework */; };
+		E71409B2D10996F2FCACD145 /* Pods_BuzzWatch2Watch_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7051E273A341F3F57DAE6558 /* Pods_BuzzWatch2Watch_Watch_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		51A112644FC12E593F6ECE52 /* Pods-BuzzWatch2Watch Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzWatch2Watch Watch App.release.xcconfig"; path = "Target Support Files/Pods-BuzzWatch2Watch Watch App/Pods-BuzzWatch2Watch Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		643C8A62EB5FC9DC07EE48D6 /* Pods_BuzzWatch2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzWatch2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7051E273A341F3F57DAE6558 /* Pods_BuzzWatch2Watch_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuzzWatch2Watch_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		929016F41897561908B30BC1 /* Pods-BuzzWatch2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzWatch2.release.xcconfig"; path = "Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2.release.xcconfig"; sourceTree = "<group>"; };
+		96E166651120F3B7DB073F83 /* Pods-BuzzWatch2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzWatch2.debug.xcconfig"; path = "Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2.debug.xcconfig"; sourceTree = "<group>"; };
 		BD082B7928E3BAEE00B68BAF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -94,12 +105,14 @@
 		BD2FF9AB28ECF1FC0098A180 /* BuzzWatch2Watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BuzzWatch2Watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BD2FF9B528ECF64C0098A180 /* BuzzWatch2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuzzWatch2.entitlements; sourceTree = "<group>"; };
 		BD2FF9B828ECFB5E0098A180 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BD959C2128FCE448006EB47A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BDE946FA28EBB99800736ACA /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		BDF2E82228E7CE3E001CEB60 /* SetupMonitoredSoundsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupMonitoredSoundsView.swift; sourceTree = "<group>"; };
 		BDF2E82328E7CE3F001CEB60 /* SoundIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundIdentifier.swift; sourceTree = "<group>"; };
 		BDF2E82428E7CE3F001CEB60 /* DetectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionState.swift; sourceTree = "<group>"; };
 		BDF2E82628E7CE3F001CEB60 /* ClassificationResultsSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassificationResultsSubject.swift; sourceTree = "<group>"; };
 		BDF2E82D28E7CECF001CEB60 /* SystemAudioClassifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemAudioClassifier.swift; sourceTree = "<group>"; };
+		ED81D593DEAA16371422F18E /* Pods-BuzzWatch2Watch Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuzzWatch2Watch Watch App.debug.xcconfig"; path = "Target Support Files/Pods-BuzzWatch2Watch Watch App/Pods-BuzzWatch2Watch Watch App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00C79E8F350FC98371A131B /* Pods_BuzzWatch2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,12 +128,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71409B2D10996F2FCACD145 /* Pods_BuzzWatch2Watch_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98AC4D6B278F331D30CA6B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				643C8A62EB5FC9DC07EE48D6 /* Pods_BuzzWatch2.framework */,
+				7051E273A341F3F57DAE6558 /* Pods_BuzzWatch2Watch_Watch_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD082B5528E3A13700B68BAF = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +151,8 @@
 				BD2FF91F28ECC65D0098A180 /* BuzzWatch2 */,
 				BD2FF93728ECC8E50098A180 /* BuzzWatch2Watch Watch App */,
 				BD082B5D28E3A13700B68BAF /* Products */,
+				D5A8BF0ED889633DA38D542D /* Pods */,
+				98AC4D6B278F331D30CA6B4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +186,7 @@
 				BD2FF92028ECC65D0098A180 /* AppDelegate.swift */,
 				BD2FF92228ECC65D0098A180 /* SceneDelegate.swift */,
 				BD2FF92428ECC65D0098A180 /* ViewController.swift */,
+				BD959C2128FCE448006EB47A /* SettingsViewController.swift */,
 				BD2FF92628ECC65D0098A180 /* Main.storyboard */,
 				BD2FF92928ECC65D0098A180 /* Assets.xcassets */,
 				BD2FF92B28ECC65D0098A180 /* LaunchScreen.storyboard */,
@@ -199,6 +226,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D5A8BF0ED889633DA38D542D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96E166651120F3B7DB073F83 /* Pods-BuzzWatch2.debug.xcconfig */,
+				929016F41897561908B30BC1 /* Pods-BuzzWatch2.release.xcconfig */,
+				ED81D593DEAA16371422F18E /* Pods-BuzzWatch2Watch Watch App.debug.xcconfig */,
+				51A112644FC12E593F6ECE52 /* Pods-BuzzWatch2Watch Watch App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,10 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD2FF93128ECC65D0098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2" */;
 			buildPhases = (
+				258537402E9F80E33D77DCAE /* [CP] Check Pods Manifest.lock */,
 				BD2FF91A28ECC65D0098A180 /* Sources */,
 				BD2FF91B28ECC65D0098A180 /* Frameworks */,
 				BD2FF91C28ECC65D0098A180 /* Resources */,
 				BD2FF94728ECC8E60098A180 /* Embed Watch Content */,
+				92FB84B1FC939AE8D84CA0D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD2FF94428ECC8E60098A180 /* Build configuration list for PBXNativeTarget "BuzzWatch2Watch Watch App" */;
 			buildPhases = (
+				2A09DA67FA3A769C2F7701FC /* [CP] Check Pods Manifest.lock */,
 				BD2FF93228ECC8E40098A180 /* Sources */,
 				BD2FF93328ECC8E40098A180 /* Frameworks */,
 				BD2FF93428ECC8E40098A180 /* Resources */,
@@ -298,13 +339,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		258537402E9F80E33D77DCAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuzzWatch2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A09DA67FA3A769C2F7701FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuzzWatch2Watch Watch App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92FB84B1FC939AE8D84CA0D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD2FF91A28ECC65D0098A180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD6AECD229038E7400CA29F0 /* ClassificationResultsSubject.swift in Sources */,
+				BD98689A28FF7E4400E513DF /* SoundIdentifier.swift in Sources */,
+				BD98689928FF7D3B00E513DF /* SystemAudioClassifier.swift in Sources */,
 				BD1809F528F4DFB700F9441C /* Logger.swift in Sources */,
 				BD1809F628F4DFB700F9441C /* SessionTransfer.swift in Sources */,
+				BD959C2228FCE448006EB47A /* SettingsViewController.swift in Sources */,
 				BD1809F728F4DFB700F9441C /* CommandStatus.swift in Sources */,
 				BD1809F828F4DFB700F9441C /* FileTransferObservers.swift in Sources */,
 				BD1809F928F4DFB700F9441C /* TestDataProvider.swift in Sources */,
@@ -482,6 +591,7 @@
 		};
 		BD2FF92F28ECC65D0098A180 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96E166651120F3B7DB073F83 /* Pods-BuzzWatch2.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -520,6 +630,7 @@
 		};
 		BD2FF93028ECC65D0098A180 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 929016F41897561908B30BC1 /* Pods-BuzzWatch2.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -559,6 +670,7 @@
 		};
 		BD2FF94528ECC8E60098A180 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED81D593DEAA16371422F18E /* Pods-BuzzWatch2Watch Watch App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -592,6 +704,7 @@
 		};
 		BD2FF94628ECC8E60098A180 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51A112644FC12E593F6ECE52 /* Pods-BuzzWatch2Watch Watch App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

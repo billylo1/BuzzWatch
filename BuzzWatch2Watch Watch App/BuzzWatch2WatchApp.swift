@@ -113,6 +113,7 @@ class AppState: ObservableObject, SessionCommands {
     func dataDidFlow(_ notification: Notification) {
         
         print("dataDidFlow")
+        print(notification)
         guard let commandStatus = notification.object as? CommandStatus else { return }
         
         // If the data is from the current channel, simply update color and time stamp, then return.

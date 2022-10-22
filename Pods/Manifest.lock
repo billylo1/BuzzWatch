@@ -1,0 +1,16 @@
+PODS:
+  - InAppSettingsKit (3.3.6)
+
+DEPENDENCIES:
+  - InAppSettingsKit
+
+SPEC REPOS:
+  trunk:
+    - InAppSettingsKit
+
+SPEC CHECKSUMS:
+  InAppSettingsKit: 37df0b44132380d4c7db6fc7cded92997e29873a
+
+PODFILE CHECKSUM: 1e6b657708074bec48deefc392ea322794f5d716
+
+COCOAPODS: 1.11.3
