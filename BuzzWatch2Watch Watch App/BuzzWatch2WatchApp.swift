@@ -17,6 +17,7 @@ import Combine
 import SoundAnalysis
 import UserNotifications
 import WatchConnectivity
+import HealthKit
 
 /// Contains customizable settings that control app behavior.
 struct AppConfiguration {
@@ -32,16 +33,7 @@ struct AppConfiguration {
     var overlapFactor = Double(0.9)
 
     /// A list of sounds to identify from system audio input.
-    var monitoredSounds = Set<SoundIdentifier>()
-
-    init() {
-        self.monitoredSounds = [
-            SoundIdentifier(labelName: "car_horn"),
-            SoundIdentifier(labelName: "siren"),
-            SoundIdentifier(labelName: "smoke_detector"),
-            SoundIdentifier(labelName: "screaming")
-        ]
-    }
+    var monitoredSounds = [SoundIdentifier]()
 
     /// Retrieves a list of the sounds the system can identify.
     ///
@@ -63,6 +55,7 @@ struct AppConfiguration {
 /// the cumulative understanding of what sounds are currently present. It tracks interruptions, and allows for
 /// restarting an analysis by providing a new configuration.
 class AppState: ObservableObject, SessionCommands {
+    
     /// A cancellable object for the lifetime of the sound classification.
     ///
     /// While the app retains this cancellable object, a sound classification task continues to run until it
@@ -70,7 +63,7 @@ class AppState: ObservableObject, SessionCommands {
     private var detectionCancellable: AnyCancellable? = nil
 
     /// The configuration that governs sound classification.
-    private var appConfig = AppConfiguration()
+    @Published var appConfig = AppConfiguration()
 
     /// A list of mappings between sounds and current detection states.
     ///
@@ -83,6 +76,7 @@ class AppState: ObservableObject, SessionCommands {
     /// emitted from Sound Analysis, or due to an interruption in the recorded audio. The app needs to prompt
     /// the user to restart classification when `false.`
     @Published var soundDetectionIsRunning: Bool = false
+    @Published var buttonTitle: String = "Start Listening"
 
     private var command: Command!
     private lazy var sessionDelegator: SessionDelegator = {
@@ -100,12 +94,42 @@ class AppState: ObservableObject, SessionCommands {
             name: .dataDidFlow, object: nil
         )
         assert(WCSession.isSupported(), "This sample requires a platform supporting Watch Connectivity!")
-                
+
         WCSession.default.delegate = sessionDelegator
         WCSession.default.activate()
+        
+        loadSettings()
+        
         print("< init()")
     }
     
+    func loadSettings() {
+        
+        print("loadSettings")
+        
+        appConfig.monitoredSounds = []
+        
+        var sounds = UserDefaults.standard.array(forKey: "monitored_sounds")
+        
+        if (sounds == nil) {
+            sounds =  ["car_horn", "finger_snapping", "siren", "smoke_detector"]  // default
+        }
+        
+        for sound in sounds! {
+            appConfig.monitoredSounds.append(SoundIdentifier(labelName: sound as! String))
+        }
+
+        print(sounds as! [String])
+        
+        var threshold = UserDefaults.standard.double(forKey: "threshold")
+        if (threshold == 0) {
+            threshold = 0.9 // default
+        }
+        
+        print(threshold)
+
+        notificationConfidenceThreshold = threshold
+    }
     
     // .dataDidFlow notification handler. Update the UI with the command status.
     //
@@ -116,16 +140,15 @@ class AppState: ObservableObject, SessionCommands {
         print(notification)
         guard let commandStatus = notification.object as? CommandStatus else { return }
         
-        // If the data is from the current channel, simply update color and time stamp, then return.
-        //
-        if commandStatus.command == command {
-//            updateUI(with: commandStatus, errorMessage: commandStatus.errorMessage)
-            return
-        }
+        let settings = commandStatus.buzzWatchSettings;
+
+        UserDefaults.standard.set(settings?.monitoredSounds, forKey: "monitored_sounds")
+        UserDefaults.standard.set(settings?.threshold, forKey: "threshold")
+
+        loadSettings()
         
     }
 
-    
     /// Begins detecting sounds according to the configuration you specify.
     ///
     /// If the sound classification is running when calling this method, it stops before starting again.
@@ -158,15 +181,18 @@ class AppState: ObservableObject, SessionCommands {
           }
 
         appConfig = config
+        
         SystemAudioClassifier.singleton.startSoundClassification(
           subject: classificationSubject,
           inferenceWindowSize: config.inferenceWindowSize,
           overlapFactor: config.overlapFactor)
+        
         soundDetectionIsRunning = true
+        buttonTitle = "Stop Listening"
 
     }
 
-    let notificationConfidenceThreshold = 0.8
+    var notificationConfidenceThreshold = 0.8
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
     
@@ -175,6 +201,8 @@ class AppState: ObservableObject, SessionCommands {
         print("> stopDetection")
         SystemAudioClassifier.singleton.stopSoundClassification()
         soundDetectionIsRunning = false
+        buttonTitle = "Start Listening"
+
     }
     
     func handleClassification(_ result: SNClassificationResult) {
@@ -188,20 +216,20 @@ class AppState: ObservableObject, SessionCommands {
             
             if carHornConfidence > notificationConfidenceThreshold {
                 sendNotification("📢 Car Horn", carHornConfidence)
-            }
-            if sirenConfidence > notificationConfidenceThreshold {
+            } else if sirenConfidence > notificationConfidenceThreshold {
                 sendNotification("🚨 Siren", sirenConfidence)
-            }
-            if smokeDetectorConfidence > notificationConfidenceThreshold {
+            } else if smokeDetectorConfidence > notificationConfidenceThreshold {
                 sendNotification("🔥 Smoke Detector", smokeDetectorConfidence)
-            }
-            if screamingConfidence > notificationConfidenceThreshold {
+            } else if screamingConfidence > notificationConfidenceThreshold {
                 sendNotification("🗣 Screaming", screamingConfidence)
-            }
-            if fingerSnappingConfidence > 0.95 {        // special setting to minimize false positives
+            } else if fingerSnappingConfidence > 0.95 {        // special setting to minimize false positives
                 sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
-//                sendNotification("📢 Car Horn", fingerSnappingConfidence)  // marketing screenshot only
-
+            } else {
+                let confidence = result.classifications.first!.confidence
+                if confidence > notificationConfidenceThreshold {
+                    let identifier : String = result.classifications.first!.identifier
+                    sendNotification("📢 \(identifier)", confidence)
+                }
             }
         }
 
@@ -226,8 +254,6 @@ class AppState: ObservableObject, SessionCommands {
     }
     func sendNotification(_ title: String, _ confidence: Double) {
         
-        
-        
         let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
 
@@ -243,7 +269,7 @@ class AppState: ObservableObject, SessionCommands {
         content.categoryIdentifier = "myCategory"
         content.interruptionLevel = .timeSensitive
         
-        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
         
@@ -289,6 +315,10 @@ class AppState: ObservableObject, SessionCommands {
         return oldStates.map { (key, value) in
             (key, DetectionState(advancedFrom: value, currentConfidence: confidenceForLabel(key)))
         }
+    }
+    
+    func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
+        print("handleWorkoutConfiguration")
     }
 }
 

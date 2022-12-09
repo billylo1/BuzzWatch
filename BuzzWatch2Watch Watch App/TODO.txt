@@ -2,8 +2,17 @@
 // - start button to ask for permissions (recording and notifications)
 // - show icons and confidence level to custom notification (myCategory)
 
+- add auto-start to config passing
+- show full name of sound (instead of identifier) on notification
+-
+
+- load settings on startup... if not found, initialize with defaults
+- add prompt on watch to tell people where to configure
+-
+
+
 - sometimes it doesn't resume after a notification?
 - move % sign to payload
-- 
+- look for better emoji (for other sounds)
 - configurable thresholds and auto-start
 

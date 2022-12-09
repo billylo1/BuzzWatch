@@ -9,6 +9,7 @@ import Foundation
 
 /// A sound that the app monitors.
 struct SoundIdentifier: Hashable {
+        
     /// An internal name that identifies a sound classification.
     var labelName: String
 

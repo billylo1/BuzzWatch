@@ -6,5 +6,10 @@
 	<array>
 		<string>audio</string>
 	</array>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>alarm</string>
+		<string>workout-processing</string>
+	</array>
 </dict>
 </plist>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hK2-MR-pWv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hK2-MR-pWv">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9y-cB-Xx9">
-                                <rect key="frame" x="30" y="487.33333333333331" width="330" height="125.33333333333331"/>
+                                <rect key="frame" x="30" y="522.33333333333337" width="330" height="125.33333333333337"/>
                                 <string key="text">On device analysis only
 No network usage
 No audio recording
@@ -49,40 +49,40 @@ Supports sirens, car horns, baby cries and other user selectable sounds</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Optimized for privacy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u62-hi-OzT">
-                                <rect key="frame" x="82.666666666666686" y="442" width="225" height="25.333333333333314"/>
+                                <rect key="frame" x="82.666666666666686" y="477" width="225" height="25.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-GX-AkK">
-                                <rect key="frame" x="195" y="632.66666666666663" width="0.0" height="0.0"/>
+                                <rect key="frame" x="195" y="667.66666666666663" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bT-dU-m3b">
-                                <rect key="frame" x="67" y="622.66666666666663" width="256" height="35"/>
+                                <rect key="frame" x="67" y="657.66666666666663" width="256" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="github.com/billylo1/BuzzWatch"/>
                                 <connections>
                                     <action selector="githubLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Nh-pf-ZIO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acd-xL-lEr">
-                                <rect key="frame" x="145" y="667.66666666666663" width="100" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acd-xL-lEr" userLabel="Configure">
+                                <rect key="frame" x="111" y="432" width="168" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="UgD-Sj-2TJ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="UgD-Sj-2TJ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Launch Watch App"/>
                                 <connections>
                                     <action selector="updateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82z-A4-FH6"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="win-aY-0Uj" userLabel="GenerateList">
-                                <rect key="frame" x="145" y="712.66666666666663" width="100" height="35"/>
+                                <rect key="frame" x="145" y="477" width="100" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="IXz-uF-gdF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="IXz-uF-gdF"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Generate"/>
@@ -96,14 +96,12 @@ Supports sirens, car horns, baby cries and other user selectable sounds</string>
                         <constraints>
                             <constraint firstItem="JBy-E1-sBp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="0vQ-l5-Uma"/>
                             <constraint firstItem="2bT-dU-m3b" firstAttribute="top" secondItem="Z9y-cB-Xx9" secondAttribute="bottom" constant="10" id="1U5-MW-w2n"/>
-                            <constraint firstItem="acd-xL-lEr" firstAttribute="top" secondItem="2bT-dU-m3b" secondAttribute="bottom" constant="10" id="4kq-NJ-BzO"/>
-                            <constraint firstItem="u62-hi-OzT" firstAttribute="top" secondItem="JBy-E1-sBp" secondAttribute="bottom" id="AvN-XG-Toh"/>
                             <constraint firstItem="Oob-GX-AkK" firstAttribute="top" secondItem="Z9y-cB-Xx9" secondAttribute="bottom" constant="20" id="Kfm-dQ-RcP"/>
                             <constraint firstItem="Oob-GX-AkK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lui-aY-kqU"/>
                             <constraint firstItem="u62-hi-OzT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rl4-68-2nd"/>
                             <constraint firstItem="Z9y-cB-Xx9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="RqA-qa-xom"/>
                             <constraint firstItem="2Mj-l3-Hgs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="U0y-4a-tBH"/>
-                            <constraint firstItem="acd-xL-lEr" firstAttribute="top" secondItem="2bT-dU-m3b" secondAttribute="bottom" constant="10" id="V4u-VX-sys"/>
+                            <constraint firstItem="acd-xL-lEr" firstAttribute="top" secondItem="JBy-E1-sBp" secondAttribute="bottom" constant="-10" id="V4u-VX-sys"/>
                             <constraint firstItem="Wd0-43-1Q4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZIp-EG-YEr"/>
                             <constraint firstItem="Z9y-cB-Xx9" firstAttribute="top" secondItem="u62-hi-OzT" secondAttribute="bottom" constant="20" id="erk-7Q-ie4"/>
                             <constraint firstAttribute="trailing" secondItem="Z9y-cB-Xx9" secondAttribute="trailing" constant="30" id="kgQ-Ir-9GZ"/>
@@ -112,6 +110,7 @@ Supports sirens, car horns, baby cries and other user selectable sounds</string>
                             <constraint firstItem="2bT-dU-m3b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ngH-Un-aqw"/>
                             <constraint firstAttribute="trailing" secondItem="2Mj-l3-Hgs" secondAttribute="trailing" constant="30" id="qUm-TA-eYm"/>
                             <constraint firstItem="win-aY-0Uj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rPy-U4-2jc"/>
+                            <constraint firstItem="u62-hi-OzT" firstAttribute="top" secondItem="acd-xL-lEr" secondAttribute="bottom" constant="10" id="sAW-d6-vOt"/>
                             <constraint firstItem="JBy-E1-sBp" firstAttribute="top" secondItem="2Mj-l3-Hgs" secondAttribute="bottom" id="ufS-84-9a2"/>
                             <constraint firstItem="2Mj-l3-Hgs" firstAttribute="top" secondItem="Wd0-43-1Q4" secondAttribute="bottom" constant="20" id="z9x-UV-HrN"/>
                             <constraint firstItem="win-aY-0Uj" firstAttribute="top" secondItem="acd-xL-lEr" secondAttribute="bottom" constant="10" id="zpy-dv-kzt"/>
@@ -137,7 +136,7 @@ Supports sirens, car horns, baby cries and other user selectable sounds</string>
                                 <rect key="frame" x="0.0" y="400" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bTH-cz-qdi" id="JKj-Ks-nid">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -149,7 +148,7 @@ Supports sirens, car horns, baby cries and other user selectable sounds</string>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="neverShowPrivacySettings" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="showDoneButton" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="showDoneButton" value="NO"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNX-MO-eCA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -34,37 +34,20 @@ enum Phrase: String {
 
 // Wrap a timed color payload dictionary with a stronger type.
 //
-struct TimedColor {
-    var timeStamp: String
-    var colorData: Data
+struct BuzzWatchSettings {
     
-    var color: UIColor {
-        let optional = ((try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [UIColor.self], from: colorData)) as Any??)
-        guard let color = optional as? UIColor else {
-            fatalError("Failed to unarchive a UIClor object!")
-        }
-        return color
-    }
-    var timedColor: [String: Any] {
-        return [PayloadKey.timeStamp: timeStamp, PayloadKey.colorData: colorData]
-    }
+    var monitoredSounds : [String]
+    var threshold: Double = 0.9
     
-    init(_ timedColor: [String: Any]) {
-        guard let timeStamp = timedColor[PayloadKey.timeStamp] as? String,
-            let colorData = timedColor[PayloadKey.colorData] as? Data else {
-                fatalError("Timed color dictionary doesn't have right keys!")
+    init(_ buzzWatchSettings: [String: Any]) {
+        self.monitoredSounds = buzzWatchSettings["monitored_sounds"] as! [String]
+        let thresholdString = buzzWatchSettings["threshold"] as? String
+        if thresholdString != nil {
+            self.threshold = Double(thresholdString!) ?? 0.9
         }
-        self.timeStamp = timeStamp
-        self.colorData = colorData
+        print(self.threshold)
     }
-    
-    init(_ timedColor: Data) {
-        let data = ((try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(timedColor)) as Any??)
-        guard let dictionary = data as? [String: Any] else {
-            fatalError("Failed to unarchive a timedColor dictionary!")
-        }
-        self.init(dictionary)
-    }
+
 }
 
 // Wrap the command's status to bridge the commands status and UI.
@@ -72,7 +55,7 @@ struct TimedColor {
 struct CommandStatus {
     var command: Command
     var phrase: Phrase
-    var timedColor: TimedColor?
+    var buzzWatchSettings: BuzzWatchSettings?
     var fileTransfer: WCSessionFileTransfer?
     var file: WCSessionFile?
     var userInfoTranser: WCSessionUserInfoTransfer?
