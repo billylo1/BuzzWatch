@@ -10,21 +10,21 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Auto-start</string>
+			<string>Auto-start Sound Detection</string>
 			<key>Key</key>
-			<string>autostart</string>
+			<string>auto_start</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Confidence Threshold</string>
+			<string>Sensitivity Threshold (0-1)</string>
 			<key>Key</key>
 			<string>confidence_threshold</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
 			<key>DefaultValue</key>
-			<string>0.8</string>
+			<string>0.9</string>
 			<key>IASKTextAlignment</key>
 			<string>IASKUITextAlignmentRight</string>
 		</dict>
@@ -401,8 +401,8 @@
 			<string>Car Horn</string>
 			<key>Key</key>
 			<string>sounds_car_horn</string>
-            <key>DefaultValue</key>
-            <true />
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -947,9 +947,8 @@
 			<string>Finger Snapping</string>
 			<key>Key</key>
 			<string>sounds_finger_snapping</string>
-            <key>DefaultValue</key>
-            <true />
-
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -1790,9 +1789,8 @@
 			<string>Screaming</string>
 			<key>Key</key>
 			<string>sounds_screaming</string>
-            <key>DefaultValue</key>
-            <true />
-
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -1889,9 +1887,8 @@
 			<string>Siren</string>
 			<key>Key</key>
 			<string>sounds_siren</string>
-            <key>DefaultValue</key>
-            <true />
-
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -1940,9 +1937,8 @@
 			<string>Smoke Detector</string>
 			<key>Key</key>
 			<string>sounds_smoke_detector</string>
-            <key>DefaultValue</key>
-            <true />
-
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>

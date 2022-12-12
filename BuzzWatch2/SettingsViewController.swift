@@ -72,7 +72,7 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
         
         print(soundLabels)
         
-        let context = [ "monitored_sounds" : soundLabels, "threshold" : settings["confidence_threshold"]]
+        let context = [ "monitored_sounds" : soundLabels, "threshold" : settings["confidence_threshold"] , "auto_start" : settings["auto_start"]]
         print(context)
         return context as [String : Any]
     }

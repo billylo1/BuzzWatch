@@ -36,11 +36,16 @@ class ViewController: UIViewController,  WCSessionDelegate {
     
     @IBAction func updateAction(_ sender: Any) {
         
-        startWatchApp()
-        // self.tabBarController?.selectedIndex = 1
+//        startWatchApp()
+         self.tabBarController?.selectedIndex = 1
         
     }
     
+    /* this is a development use only code. To retrieve the full list of identifiable sound and put them into the plist file
+       A better solution would be to load it dynamically at runtime, but it will not be a priority for now. Better to get the
+       tool out sooner to evolve it.
+     
+     */
     @IBAction func generateAction(_ sender: Any) {
         do {
             let soundIdentifiers = try SystemAudioClassifier.getAllPossibleLabels()

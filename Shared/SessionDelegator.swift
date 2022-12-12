@@ -49,7 +49,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     // Did receive a message, and the peer doesn't need a response.
     //
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        var commandStatus = CommandStatus(command: .sendMessage, phrase: .received)
+        let commandStatus = CommandStatus(command: .sendMessage, phrase: .received)
         // commandStatus.buzzWatchSettings = BuzzWatchSettings(message)
         postNotificationOnMainQueueAsync(name: .dataDidFlow, object: commandStatus)
     }
@@ -64,7 +64,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     // Did receive a piece of message data, and the peer doesn't need a response.
     //
     func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
-        var commandStatus = CommandStatus(command: .sendMessageData, phrase: .received)
+    let commandStatus = CommandStatus(command: .sendMessageData, phrase: .received)
         // commandStatus.timedColor = TimedColor(messageData)
         postNotificationOnMainQueueAsync(name: .dataDidFlow, object: commandStatus)
     }

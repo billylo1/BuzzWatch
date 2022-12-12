@@ -38,6 +38,7 @@ struct BuzzWatchSettings {
     
     var monitoredSounds : [String]
     var threshold: Double = 0.9
+    var autoStart: Bool = false
     
     init(_ buzzWatchSettings: [String: Any]) {
         self.monitoredSounds = buzzWatchSettings["monitored_sounds"] as! [String]
@@ -45,7 +46,7 @@ struct BuzzWatchSettings {
         if thresholdString != nil {
             self.threshold = Double(thresholdString!) ?? 0.9
         }
-        print(self.threshold)
+        self.autoStart = buzzWatchSettings["auto_start"] as? Bool ?? false
     }
 
 }

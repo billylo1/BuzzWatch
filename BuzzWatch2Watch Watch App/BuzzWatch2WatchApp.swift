@@ -86,8 +86,8 @@ class AppState: ObservableObject, SessionCommands {
 
 
     let notificationDelegate = NotificationDelegate()
+    
     init() {
-         // self.restartDetection(config: appConfig)
         UNUserNotificationCenter.current().delegate = notificationDelegate
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
@@ -99,6 +99,9 @@ class AppState: ObservableObject, SessionCommands {
         WCSession.default.activate()
         
         loadSettings()
+        if (notificationAutoStart) {
+             self.restartDetection(config: appConfig)
+        }
         
         print("< init()")
     }
@@ -119,16 +122,19 @@ class AppState: ObservableObject, SessionCommands {
             appConfig.monitoredSounds.append(SoundIdentifier(labelName: sound as! String))
         }
 
-        print(sounds as! [String])
+//        print(sounds as! [String])
         
         var threshold = UserDefaults.standard.double(forKey: "threshold")
         if (threshold == 0) {
             threshold = 0.9 // default
         }
         
-        print(threshold)
+        //        print(threshold)
 
         notificationConfidenceThreshold = threshold
+        
+        notificationAutoStart = UserDefaults.standard.bool(forKey: "auto_start")
+
     }
     
     // .dataDidFlow notification handler. Update the UI with the command status.
@@ -144,6 +150,7 @@ class AppState: ObservableObject, SessionCommands {
 
         UserDefaults.standard.set(settings?.monitoredSounds, forKey: "monitored_sounds")
         UserDefaults.standard.set(settings?.threshold, forKey: "threshold")
+        UserDefaults.standard.set(settings?.autoStart, forKey: "auto_start")
 
         loadSettings()
         
@@ -192,7 +199,8 @@ class AppState: ObservableObject, SessionCommands {
 
     }
 
-    var notificationConfidenceThreshold = 0.8
+    var notificationConfidenceThreshold = 0.9
+    var notificationAutoStart = false
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
     
@@ -257,7 +265,7 @@ class AppState: ObservableObject, SessionCommands {
         let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
 
-        requestAuthorization(false)
+        requestAuthorization(false) // ensure notification authorization is there
         
         let content = UNMutableNotificationContent()
         content.title = title
