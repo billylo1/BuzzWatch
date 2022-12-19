@@ -33,9 +33,9 @@ class ViewController: UIViewController,  WCSessionDelegate {
 
     }
     
+    @IBOutlet var versionLabel: UILabel!
     @IBAction func updateAction(_ sender: Any) {
         
-//        startWatchApp()
          self.tabBarController?.selectedIndex = 1
         
     }
@@ -71,29 +71,11 @@ class ViewController: UIViewController,  WCSessionDelegate {
         }
         
     }
-//    let healthStore = HKHealthStore()
-//    let configuration = HKWorkoutConfiguration()
-//
-//    func startWatchApp() {
-//        print("method called to open app ")
-//
-//        getActiveWCSession { (wcSession) in
-//            print(wcSession.isComplicationEnabled, wcSession.isPaired)
-//            if wcSession.activationState == .activated && wcSession.isWatchAppInstalled {
-//                print("starting watch app")
-//
-//                self.healthStore.startWatchApp(with: self.configuration, completion: { (success, error) in
-//                    // Handle errors
-//                })
-//            }
-//
-//            else{
-//                print("watch not active or not installed")
-//            }
-//        }
-//
-//    }
 
+    override func viewDidLoad() {
+        versionLabel.text = "v\( Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
+    }
+    
      func getActiveWCSession(completion: @escaping (WCSession)->Void) {
         guard WCSession.isSupported() else { return }
 

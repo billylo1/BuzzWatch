@@ -17,31 +17,26 @@ struct ContentView: View {
     ///
     
     @StateObject var appState = AppState()
-    @State var buttonTint: Color = .blue
-    @State var title = "Ready"
     @State var updater: Bool = false
 
     var body: some View {
         VStack {
-//            Text(title)
             Button(appState.buttonTitle) {
                 
                 if (appState.soundDetectionIsRunning) {
                     appState.stopDetection()
-                    buttonTint = .blue
-                    title = "Ready"
+                    appState.title = "Ready"
                 } else {
                     appState.restartDetection(config: appState.appConfig)
-                    buttonTint = .green
-                    title = "Listening for"
-
+                    appState.title = "Listening for"
                 }
 
-            }.tint(buttonTint)
+            }.tint(appState.soundDetectionIsRunning ? .orange : .blue).buttonStyle(.borderedProminent)
 
+            Text(appState.title).bold()
             Divider()
             ForEach(appState.appConfig.monitoredSounds, id: \.labelName) { sound in
-                Text("\(sound.displayName)")
+                Text("\(sound.displayName)").foregroundColor(appState.detectedSound == (sound.labelName) ? .orange : .primary)
             }
 
 //

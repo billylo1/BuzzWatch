@@ -110,9 +110,9 @@
             filePath = "BuzzWatch2Watch Watch App/BuzzWatch2WatchApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
-            landmarkName = "init()"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "init(appState:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,8 +126,8 @@
             filePath = "BuzzWatch2Watch Watch App/BuzzWatch2WatchApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "BuzzWatch2Watch Watch App/BuzzWatch2WatchApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "sendNotification(_:_:)"
             landmarkType = "7">
          </BreakpointContent>

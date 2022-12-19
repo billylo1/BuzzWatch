@@ -677,7 +677,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user of important events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -711,7 +711,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user of important events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,6 +13,7 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
     func settingsViewControllerDidEnd(_ settingsViewController: IASKAppSettingsViewController) {
         print("settingsViewControllerDidEnd")
         sendSettingsToWatch()
+        tabBarController?.selectedIndex = 0
     }
     
     var soundLabels: [String] = [];
@@ -21,6 +22,7 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
         
         super.viewDidLoad()
         self.delegate = self
+        self.showCreditsFooter = false
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),

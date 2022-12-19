@@ -77,17 +77,19 @@ class AppState: ObservableObject, SessionCommands {
     /// the user to restart classification when `false.`
     @Published var soundDetectionIsRunning: Bool = false
     @Published var buttonTitle: String = "Start Listening"
-
+    @Published var detectedSound : String = ""
+    @Published var title : String = "Ready"
+    
     private var command: Command!
     private lazy var sessionDelegator: SessionDelegator = {
         return SessionDelegator()
     }()
 
-
-
-    let notificationDelegate = NotificationDelegate()
+    var notificationDelegate: NotificationDelegate?
     
     init() {
+        notificationDelegate = NotificationDelegate(appState: self)
+
         UNUserNotificationCenter.current().delegate = notificationDelegate
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
@@ -163,6 +165,7 @@ class AppState: ObservableObject, SessionCommands {
     /// - Parameter config: A configuration that provides information for performing sound detection.
     func restartDetection(config: AppConfiguration) {
         
+        print("> restartDetection")
         SystemAudioClassifier.singleton.stopSoundClassification()
 
         let classificationSubject = PassthroughSubject<SNClassificationResult, Error>()
@@ -215,32 +218,21 @@ class AppState: ObservableObject, SessionCommands {
     
     func handleClassification(_ result: SNClassificationResult) {
         
-        if -lastNotified.timeIntervalSinceNow > waitTimeBetweenNotifications {
-            let carHornConfidence = result.classification(forIdentifier: "car horn")?.confidence ?? 0.0
-            let sirenConfidence = result.classification(forIdentifier: "siren")?.confidence ?? 0.0
-            let smokeDetectorConfidence = result.classification(forIdentifier: "smoke detector")?.confidence ?? 0.0
-            let screamingConfidence = result.classification(forIdentifier: "screaming")?.confidence ?? 0.0
-            let fingerSnappingConfidence = result.classification(forIdentifier: "finger_snapping")?.confidence ?? 0.0
-            
-            if carHornConfidence > notificationConfidenceThreshold {
-                sendNotification("📢 Car Horn", carHornConfidence)
-            } else if sirenConfidence > notificationConfidenceThreshold {
-                sendNotification("🚨 Siren", sirenConfidence)
-            } else if smokeDetectorConfidence > notificationConfidenceThreshold {
-                sendNotification("🔥 Smoke Detector", smokeDetectorConfidence)
-            } else if screamingConfidence > notificationConfidenceThreshold {
-                sendNotification("🗣 Screaming", screamingConfidence)
-            } else if fingerSnappingConfidence > 0.95 {        // special setting to minimize false positives
-                sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
-            } else {
-                let confidence = result.classifications.first!.confidence
-                if confidence > notificationConfidenceThreshold {
-                    let identifier : String = result.classifications.first!.identifier
-                    sendNotification("📢 \(identifier)", confidence)
+        if -lastNotified.timeIntervalSinceNow < waitTimeBetweenNotifications {
+            return
+        }
+        
+        let classifications = result.classifications
+        for classification in classifications {
+            let soundId = SoundIdentifier(labelName: classification.identifier)
+            if (appConfig.monitoredSounds.contains(soundId)) {
+                if (classification.confidence > notificationConfidenceThreshold) {
+                    detectedSound = soundId.labelName
+                    title = soundId.displayName
+                    sendNotification("📢 \(soundId.displayName)", classification.confidence)
                 }
             }
         }
-
     }
     
     let center = UNUserNotificationCenter.current()
@@ -262,6 +254,8 @@ class AppState: ObservableObject, SessionCommands {
     }
     func sendNotification(_ title: String, _ confidence: Double) {
         
+        self.lastNotified = Date.now        // this prevents duplicated notifications that comes in too quickly
+
         let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
 
@@ -273,17 +267,22 @@ class AppState: ObservableObject, SessionCommands {
         formatter1.timeStyle = .medium
         let subtitle = String(format: "%.0f", confidence*100)
         content.subtitle = subtitle
-        content.sound = .defaultCritical
+        content.sound = .none
         content.categoryIdentifier = "myCategory"
         content.interruptionLevel = .timeSensitive
         
-        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
+        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.3, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
         
-        let listeningStateBeforeSend = soundDetectionIsRunning
-        stopDetection()
-
+//        if (soundDetectionIsRunning) {
+//            stopDetection()
+//        }
+        
+        print("play notification")
+        
+        WKInterfaceDevice.current().play(.notification) // this is important because the sound/vibration from the local notification would be muted because of the active AVAudioSession. local notification is still used so it will pop up on top of the watch face when BuzzWatch is not in foreground
+        
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print(error.localizedDescription)
@@ -293,11 +292,6 @@ class AppState: ObservableObject, SessionCommands {
             }
         }
         
-        if (listeningStateBeforeSend) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.restartDetection(config: self.appConfig)
-            }
-        }
     }
 
     /// Updates the detection states according to the latest classification result.
@@ -325,18 +319,31 @@ class AppState: ObservableObject, SessionCommands {
         }
     }
     
-    func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
-        print("handleWorkoutConfiguration")
-    }
 }
 
 class NotificationDelegate : NSObject, UNUserNotificationCenterDelegate {    // In order to show a notification in banner mode, `completionHandler` must be called with suitable option here
-    override init() {
+    
+    init(appState: AppState) {
+        self.appState = appState
         super.init()
     }
+    
+    var appState : AppState
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
         print("userNotificationCenter - willPresent")
-        completionHandler([.banner, .sound])
+
+        completionHandler([.banner])
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//
+//            print("userNotificationCenter - asyncAfter")
+//
+////            if (self.appState.soundDetectionIsRunning) {
+//                self.appState.restartDetection(config: self.appState.appConfig)
+////            }
+//        }
     }
 }
 

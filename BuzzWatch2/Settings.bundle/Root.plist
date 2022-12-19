@@ -8,6 +8,12 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Please start watch app so it can accept updates</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Auto-start Sound Detection</string>
@@ -18,7 +24,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Sensitivity Threshold (0-1)</string>
+			<string>Notification Threshold (0 to 1)</string>
 			<key>Key</key>
 			<string>confidence_threshold</string>
 			<key>KeyboardType</key>
