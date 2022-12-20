@@ -4,12 +4,14 @@
 
 Listens for important sounds (e.g. car horns) and alert the hearing impaired with vibrations on their wrist and visual feedbacks. #accessibility
 
+<a href="https://apps.apple.com/us/app/buzzwatch/id6443629077">Apple App Store listing</a>
+
 Optimized for privacy
 
 - On device analysis only
 - No network usage
 - No audio recording
-- Supports sirens, car horns, screaming and smoke alarm sounds.
+- Supports sirens, car horns, screaming, smoke alarm and 300+ other sounds
 
 Hope this helps.
 
