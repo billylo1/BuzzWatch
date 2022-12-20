@@ -73,6 +73,7 @@ class ViewController: UIViewController,  WCSessionDelegate {
     }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         versionLabel.text = "v\( Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
     }
     
