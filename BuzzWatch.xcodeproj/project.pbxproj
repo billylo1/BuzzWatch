@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BD1809F528F4DFB700F9441C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EE28F4DFAB00F9441C /* Logger.swift */; };
-		BD1809F628F4DFB700F9441C /* SessionTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */; };
 		BD1809F728F4DFB700F9441C /* CommandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F028F4DFAB00F9441C /* CommandStatus.swift */; };
 		BD1809F828F4DFB700F9441C /* FileTransferObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */; };
 		BD1809F928F4DFB700F9441C /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */; };
 		BD1809FA28F4DFB700F9441C /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F328F4DFAB00F9441C /* SessionDelegator.swift */; };
 		BD1809FB28F4DFB700F9441C /* SessionCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F428F4DFAB00F9441C /* SessionCommands.swift */; };
 		BD1809FC28F4E95600F9441C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EE28F4DFAB00F9441C /* Logger.swift */; };
-		BD1809FD28F4E95600F9441C /* SessionTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */; };
 		BD1809FE28F4E95600F9441C /* CommandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F028F4DFAB00F9441C /* CommandStatus.swift */; };
 		BD1809FF28F4E95600F9441C /* FileTransferObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */; };
 		BD180A0028F4E95600F9441C /* TestDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */; };
@@ -82,7 +80,6 @@
 		BD082B7B28E3BB8D00B68BAF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		BD082B7D28E3C17700B68BAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		BD1809EE28F4DFAB00F9441C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTransfer.swift; sourceTree = "<group>"; };
 		BD1809F028F4DFAB00F9441C /* CommandStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandStatus.swift; sourceTree = "<group>"; };
 		BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTransferObservers.swift; sourceTree = "<group>"; };
 		BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataProvider.swift; sourceTree = "<group>"; };
@@ -169,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				BD1809EE28F4DFAB00F9441C /* Logger.swift */,
-				BD1809EF28F4DFAB00F9441C /* SessionTransfer.swift */,
 				BD1809F028F4DFAB00F9441C /* CommandStatus.swift */,
 				BD1809F128F4DFAB00F9441C /* FileTransferObservers.swift */,
 				BD1809F228F4DFAB00F9441C /* TestDataProvider.swift */,
@@ -412,7 +408,6 @@
 				BD98689A28FF7E4400E513DF /* SoundIdentifier.swift in Sources */,
 				BD98689928FF7D3B00E513DF /* SystemAudioClassifier.swift in Sources */,
 				BD1809F528F4DFB700F9441C /* Logger.swift in Sources */,
-				BD1809F628F4DFB700F9441C /* SessionTransfer.swift in Sources */,
 				BD959C2228FCE448006EB47A /* SettingsViewController.swift in Sources */,
 				BD1809F728F4DFB700F9441C /* CommandStatus.swift in Sources */,
 				BD1809F828F4DFB700F9441C /* FileTransferObservers.swift in Sources */,
@@ -430,7 +425,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1809FC28F4E95600F9441C /* Logger.swift in Sources */,
-				BD1809FD28F4E95600F9441C /* SessionTransfer.swift in Sources */,
 				BD1809FE28F4E95600F9441C /* CommandStatus.swift in Sources */,
 				BD1809FF28F4E95600F9441C /* FileTransferObservers.swift in Sources */,
 				BD180A0028F4E95600F9441C /* TestDataProvider.swift in Sources */,
@@ -598,7 +592,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BuzzWatch2/BuzzWatch2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuzzWatch2/Info.plist;
@@ -615,7 +609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -637,7 +631,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BuzzWatch2/BuzzWatch2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuzzWatch2/Info.plist;
@@ -654,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evergreenlabs.BuzzWatch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -683,7 +677,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user of important events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -717,7 +711,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BuzzWatch2Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = BuzzWatch;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify usser of important events";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Classify sound and notify user of important events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.evergreenlabs.BuzzWatch2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -17,6 +17,7 @@ import Combine
 import SoundAnalysis
 import UserNotifications
 import WatchConnectivity
+import HealthKit
 
 /// Contains customizable settings that control app behavior.
 struct AppConfiguration {
@@ -32,16 +33,7 @@ struct AppConfiguration {
     var overlapFactor = Double(0.9)
 
     /// A list of sounds to identify from system audio input.
-    var monitoredSounds = Set<SoundIdentifier>()
-
-    init() {
-        self.monitoredSounds = [
-            SoundIdentifier(labelName: "car_horn"),
-            SoundIdentifier(labelName: "siren"),
-            SoundIdentifier(labelName: "smoke_detector"),
-            SoundIdentifier(labelName: "screaming")
-        ]
-    }
+    var monitoredSounds = [SoundIdentifier]()
 
     /// Retrieves a list of the sounds the system can identify.
     ///
@@ -63,6 +55,7 @@ struct AppConfiguration {
 /// the cumulative understanding of what sounds are currently present. It tracks interruptions, and allows for
 /// restarting an analysis by providing a new configuration.
 class AppState: ObservableObject, SessionCommands {
+    
     /// A cancellable object for the lifetime of the sound classification.
     ///
     /// While the app retains this cancellable object, a sound classification task continues to run until it
@@ -70,7 +63,7 @@ class AppState: ObservableObject, SessionCommands {
     private var detectionCancellable: AnyCancellable? = nil
 
     /// The configuration that governs sound classification.
-    private var appConfig = AppConfiguration()
+    @Published var appConfig = AppConfiguration()
 
     /// A list of mappings between sounds and current detection states.
     ///
@@ -83,29 +76,68 @@ class AppState: ObservableObject, SessionCommands {
     /// emitted from Sound Analysis, or due to an interruption in the recorded audio. The app needs to prompt
     /// the user to restart classification when `false.`
     @Published var soundDetectionIsRunning: Bool = false
-
+    @Published var buttonTitle: String = "Start Listening"
+    @Published var detectedSound : String = ""
+    @Published var title : String = "Ready"
+    
     private var command: Command!
     private lazy var sessionDelegator: SessionDelegator = {
         return SessionDelegator()
     }()
 
-
-
-    let notificationDelegate = NotificationDelegate()
+    var notificationDelegate: NotificationDelegate?
+    
     init() {
-         // self.restartDetection(config: appConfig)
+        notificationDelegate = NotificationDelegate(appState: self)
+
         UNUserNotificationCenter.current().delegate = notificationDelegate
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
             name: .dataDidFlow, object: nil
         )
         assert(WCSession.isSupported(), "This sample requires a platform supporting Watch Connectivity!")
-                
+
         WCSession.default.delegate = sessionDelegator
         WCSession.default.activate()
+        
+        loadSettings()
+        if (notificationAutoStart) {
+             self.restartDetection(config: appConfig)
+        }
+        
         print("< init()")
     }
     
+    func loadSettings() {
+        
+        print("loadSettings")
+        
+        appConfig.monitoredSounds = []
+        
+        var sounds = UserDefaults.standard.array(forKey: "monitored_sounds")
+        
+        if (sounds == nil) {
+            sounds =  ["car_horn", "finger_snapping", "siren", "smoke_detector"]  // default
+        }
+        
+        for sound in sounds! {
+            appConfig.monitoredSounds.append(SoundIdentifier(labelName: sound as! String))
+        }
+
+//        print(sounds as! [String])
+        
+        var threshold = UserDefaults.standard.double(forKey: "threshold")
+        if (threshold == 0) {
+            threshold = 0.9 // default
+        }
+        
+        //        print(threshold)
+
+        notificationConfidenceThreshold = threshold
+        
+        notificationAutoStart = UserDefaults.standard.bool(forKey: "auto_start")
+
+    }
     
     // .dataDidFlow notification handler. Update the UI with the command status.
     //
@@ -116,16 +148,16 @@ class AppState: ObservableObject, SessionCommands {
         print(notification)
         guard let commandStatus = notification.object as? CommandStatus else { return }
         
-        // If the data is from the current channel, simply update color and time stamp, then return.
-        //
-        if commandStatus.command == command {
-//            updateUI(with: commandStatus, errorMessage: commandStatus.errorMessage)
-            return
-        }
+        let settings = commandStatus.buzzWatchSettings;
+
+        UserDefaults.standard.set(settings?.monitoredSounds, forKey: "monitored_sounds")
+        UserDefaults.standard.set(settings?.threshold, forKey: "threshold")
+        UserDefaults.standard.set(settings?.autoStart, forKey: "auto_start")
+
+        loadSettings()
         
     }
 
-    
     /// Begins detecting sounds according to the configuration you specify.
     ///
     /// If the sound classification is running when calling this method, it stops before starting again.
@@ -133,6 +165,7 @@ class AppState: ObservableObject, SessionCommands {
     /// - Parameter config: A configuration that provides information for performing sound detection.
     func restartDetection(config: AppConfiguration) {
         
+        print("> restartDetection")
         SystemAudioClassifier.singleton.stopSoundClassification()
 
         let classificationSubject = PassthroughSubject<SNClassificationResult, Error>()
@@ -158,15 +191,19 @@ class AppState: ObservableObject, SessionCommands {
           }
 
         appConfig = config
+        
         SystemAudioClassifier.singleton.startSoundClassification(
           subject: classificationSubject,
           inferenceWindowSize: config.inferenceWindowSize,
           overlapFactor: config.overlapFactor)
+        
         soundDetectionIsRunning = true
+        buttonTitle = "Stop Listening"
 
     }
 
-    let notificationConfidenceThreshold = 0.8
+    var notificationConfidenceThreshold = 0.9
+    var notificationAutoStart = false
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
     
@@ -175,36 +212,27 @@ class AppState: ObservableObject, SessionCommands {
         print("> stopDetection")
         SystemAudioClassifier.singleton.stopSoundClassification()
         soundDetectionIsRunning = false
+        buttonTitle = "Start Listening"
+
     }
     
     func handleClassification(_ result: SNClassificationResult) {
         
-        if -lastNotified.timeIntervalSinceNow > waitTimeBetweenNotifications {
-            let carHornConfidence = result.classification(forIdentifier: "car horn")?.confidence ?? 0.0
-            let sirenConfidence = result.classification(forIdentifier: "siren")?.confidence ?? 0.0
-            let smokeDetectorConfidence = result.classification(forIdentifier: "smoke detector")?.confidence ?? 0.0
-            let screamingConfidence = result.classification(forIdentifier: "screaming")?.confidence ?? 0.0
-            let fingerSnappingConfidence = result.classification(forIdentifier: "finger_snapping")?.confidence ?? 0.0
-            
-            if carHornConfidence > notificationConfidenceThreshold {
-                sendNotification("📢 Car Horn", carHornConfidence)
-            }
-            if sirenConfidence > notificationConfidenceThreshold {
-                sendNotification("🚨 Siren", sirenConfidence)
-            }
-            if smokeDetectorConfidence > notificationConfidenceThreshold {
-                sendNotification("🔥 Smoke Detector", smokeDetectorConfidence)
-            }
-            if screamingConfidence > notificationConfidenceThreshold {
-                sendNotification("🗣 Screaming", screamingConfidence)
-            }
-            if fingerSnappingConfidence > 0.95 {        // special setting to minimize false positives
-                sendNotification("🫰 Finger Snapping", fingerSnappingConfidence)
-//                sendNotification("📢 Car Horn", fingerSnappingConfidence)  // marketing screenshot only
-
+        if -lastNotified.timeIntervalSinceNow < waitTimeBetweenNotifications {
+            return
+        }
+        
+        let classifications = result.classifications
+        for classification in classifications {
+            let soundId = SoundIdentifier(labelName: classification.identifier)
+            if (appConfig.monitoredSounds.contains(soundId)) {
+                if (classification.confidence > notificationConfidenceThreshold) {
+                    detectedSound = soundId.labelName
+                    title = soundId.displayName
+                    sendNotification("📢 \(soundId.displayName)", classification.confidence)
+                }
             }
         }
-
     }
     
     let center = UNUserNotificationCenter.current()
@@ -226,12 +254,12 @@ class AppState: ObservableObject, SessionCommands {
     }
     func sendNotification(_ title: String, _ confidence: Double) {
         
-        
-        
+        self.lastNotified = Date.now        // this prevents duplicated notifications that comes in too quickly
+
         let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
 
-        requestAuthorization(false)
+        requestAuthorization(false) // ensure notification authorization is there
         
         let content = UNMutableNotificationContent()
         content.title = title
@@ -239,17 +267,22 @@ class AppState: ObservableObject, SessionCommands {
         formatter1.timeStyle = .medium
         let subtitle = String(format: "%.0f", confidence*100)
         content.subtitle = subtitle
-        content.sound = .defaultCritical
+        content.sound = .none
         content.categoryIdentifier = "myCategory"
         content.interruptionLevel = .timeSensitive
         
-        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.3, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: timeTrigger)
         
-        let listeningStateBeforeSend = soundDetectionIsRunning
-        stopDetection()
-
+//        if (soundDetectionIsRunning) {
+//            stopDetection()
+//        }
+        
+        print("play notification")
+        
+        WKInterfaceDevice.current().play(.notification) // this is important because the sound/vibration from the local notification would be muted because of the active AVAudioSession. local notification is still used so it will pop up on top of the watch face when BuzzWatch is not in foreground
+        
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print(error.localizedDescription)
@@ -259,11 +292,6 @@ class AppState: ObservableObject, SessionCommands {
             }
         }
         
-        if (listeningStateBeforeSend) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.restartDetection(config: self.appConfig)
-            }
-        }
     }
 
     /// Updates the detection states according to the latest classification result.
@@ -290,15 +318,32 @@ class AppState: ObservableObject, SessionCommands {
             (key, DetectionState(advancedFrom: value, currentConfidence: confidenceForLabel(key)))
         }
     }
+    
 }
 
 class NotificationDelegate : NSObject, UNUserNotificationCenterDelegate {    // In order to show a notification in banner mode, `completionHandler` must be called with suitable option here
-    override init() {
+    
+    init(appState: AppState) {
+        self.appState = appState
         super.init()
     }
+    
+    var appState : AppState
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
         print("userNotificationCenter - willPresent")
-        completionHandler([.banner, .sound])
+
+        completionHandler([.banner])
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//
+//            print("userNotificationCenter - asyncAfter")
+//
+////            if (self.appState.soundDetectionIsRunning) {
+//                self.appState.restartDetection(config: self.appState.appConfig)
+////            }
+//        }
     }
 }
 

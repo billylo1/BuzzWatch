@@ -2,8 +2,15 @@
 // - start button to ask for permissions (recording and notifications)
 // - show icons and confidence level to custom notification (myCategory)
 
-- sometimes it doesn't resume after a notification?
-- move % sign to payload
-- 
-- configurable thresholds and auto-start
+// - add auto-start to config passing
+// startup... if not found, initialize with defaults
+// - configurable thresholds and auto-start
+
+// - show detected sound
+// - show full name of sound (instead of identifier) on notification
+// - adjust phone main screen (less text, remove github line)
+
+- add emoji for sound?
+- load settings to tell people where to configure
+
 

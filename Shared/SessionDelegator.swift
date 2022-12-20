@@ -42,15 +42,15 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     //
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         var commandStatus = CommandStatus(command: .updateAppContext, phrase: .received)
-        commandStatus.timedColor = TimedColor(applicationContext)
+        commandStatus.buzzWatchSettings = BuzzWatchSettings(applicationContext)
         postNotificationOnMainQueueAsync(name: .dataDidFlow, object: commandStatus)
     }
     
     // Did receive a message, and the peer doesn't need a response.
     //
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        var commandStatus = CommandStatus(command: .sendMessage, phrase: .received)
-        commandStatus.timedColor = TimedColor(message)
+        let commandStatus = CommandStatus(command: .sendMessage, phrase: .received)
+        // commandStatus.buzzWatchSettings = BuzzWatchSettings(message)
         postNotificationOnMainQueueAsync(name: .dataDidFlow, object: commandStatus)
     }
     
@@ -64,8 +64,8 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     // Did receive a piece of message data, and the peer doesn't need a response.
     //
     func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
-        var commandStatus = CommandStatus(command: .sendMessageData, phrase: .received)
-        commandStatus.timedColor = TimedColor(messageData)
+    let commandStatus = CommandStatus(command: .sendMessageData, phrase: .received)
+        // commandStatus.timedColor = TimedColor(messageData)
         postNotificationOnMainQueueAsync(name: .dataDidFlow, object: commandStatus)
     }
     
@@ -80,7 +80,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     //
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any] = [:]) {
         var commandStatus = CommandStatus(command: .transferUserInfo, phrase: .received)
-        commandStatus.timedColor = TimedColor(userInfo)
+        // commandStatus.timedColor = TimedColor(userInfo)
         
         if let isComplicationInfo = userInfo[PayloadKey.isCurrentComplicationInfo] as? Bool,
             isComplicationInfo == true {
@@ -106,7 +106,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     //
     func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: Error?) {
         var commandStatus = CommandStatus(command: .transferUserInfo, phrase: .finished)
-        commandStatus.timedColor = TimedColor(userInfoTransfer.userInfo)
+        // commandStatus.timedColor = TimedColor(userInfoTransfer.userInfo)
         
         #if os(iOS)
         if userInfoTransfer.isCurrentComplicationInfo {
@@ -125,7 +125,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
         var commandStatus = CommandStatus(command: .transferFile, phrase: .received)
         commandStatus.file = file
-        commandStatus.timedColor = TimedColor(file.metadata!)
+        // commandStatus.timedColor = TimedColor(file.metadata!)
         
         // The system removes WCSessionFile.fileURL once this method returns,
         // so dispatch to main queue synchronously instead of calling
@@ -147,7 +147,7 @@ class SessionDelegator: NSObject, WCSessionDelegate {
             return
         }
         commandStatus.fileTransfer = fileTransfer
-        commandStatus.timedColor = TimedColor(fileTransfer.file.metadata!)
+        // commandStatus.timedColor = TimedColor(fileTransfer.file.metadata!)
 
         #if os(watchOS)
         Logger.shared.clearLogs()

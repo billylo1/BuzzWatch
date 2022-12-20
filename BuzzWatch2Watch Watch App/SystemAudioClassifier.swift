@@ -92,7 +92,7 @@ final class SystemAudioClassifier: NSObject {
         stopAudioSession()
         do {
             let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setCategory(.playAndRecord, mode: .default, options: .duckOthers)
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: .mixWithOthers)
             try audioSession.setActive(true)
         } catch {
             stopAudioSession()

@@ -11,40 +11,33 @@ import Foundation
 struct ContentView: View {
     
     /// A configuration for managing the characteristics of a sound classification task.
-    @State var appConfig = AppConfiguration()
+    // @State var appConfig = AppConfiguration()
 
     /// The runtime state that contains information about the strength of the detected sounds.
-    @StateObject var appState = AppState()
-    @State var buttonTitle: String = "Start"
-    @State var buttonTint: Color = .blue
-    @State var title = "Ready"
-
+    ///
     
+    @StateObject var appState = AppState()
+    @State var updater: Bool = false
+
     var body: some View {
         VStack {
-            Text(title)
-            Divider()
-            Text("🚨 Sirens")
-            Text("📢 Car Horn")
-            Text("🗣 Screaming")
-            Text("🔥 Smoke Detector")
-            Text("🫰 Finger-snapping")
-            Button(buttonTitle) {
+            Button(appState.buttonTitle) {
                 
                 if (appState.soundDetectionIsRunning) {
                     appState.stopDetection()
-                    buttonTitle = "Start"
-                    buttonTint = .blue
-                    title = "Ready"
+                    appState.title = "Ready"
                 } else {
-                    appState.restartDetection(config: appConfig)
-                    buttonTitle = "Stop"
-                    buttonTint = .green
-                    title = "Listening for"
-
+                    appState.restartDetection(config: appState.appConfig)
+                    appState.title = "Listening for"
                 }
 
-            }.tint(buttonTint)
+            }.tint(appState.soundDetectionIsRunning ? .orange : .blue).buttonStyle(.borderedProminent)
+
+            Text(appState.title).bold()
+            Divider()
+            ForEach(appState.appConfig.monitoredSounds, id: \.labelName) { sound in
+                Text("\(sound.displayName)").foregroundColor(appState.detectedSound == (sound.labelName) ? .orange : .primary)
+            }
 
 //
 //            Button("Send") {

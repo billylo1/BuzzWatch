@@ -7,68 +7,23 @@
 
 import UIKit
 import SafariServices
+import WatchConnectivity
 
-class ViewController: UIViewController, SessionCommands {
 
-    private func timedColor() -> [String: Any] {
-        let red = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-        let green = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-        let blue = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-        
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        
-        let data = try? NSKeyedArchiver.archivedData(withRootObject: randomColor, requiringSecureCoding: false)
-        guard let colorData = data else { fatalError("Failed to archive a UIColor!") }
-    
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .medium
-        let timeString = dateFormatter.string(from: Date())
-        
-        return [PayloadKey.timeStamp: timeString, PayloadKey.colorData: colorData]
-    }
-    
-    // Generate an app context for updateApplicationContext.
-    //
-    var appContext: [String: Any] {
-        return timedColor()
-    }
-
-    var currentCommand: Command = .updateAppContext // Default to .updateAppContext.
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(type(of: self).dataDidFlow(_:)),
-            name: .dataDidFlow, object: nil
-        )
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    // .dataDidFlow notification handler.
-    // Update the UI using the userInfo dictionary of the notification.
-    //
-    @objc
-    func dataDidFlow(_ notification: Notification) {
-        
-        print("dataDidFlow")
-        guard let commandStatus = notification.object as? CommandStatus else { return }
-        
-        // defer { noteLabel.isHidden = logView.text.isEmpty ? false: true }
-        
-        // If an error occurs, show the error message and return.
+class ViewController: UIViewController,  WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         //
-        if let errorMessage = commandStatus.errorMessage {
-            // log("! \(commandStatus.command.rawValue)...\(errorMessage)")
-            return
-        }
-        
-        guard let timedColor = commandStatus.timedColor else { return }
-        
     }
     
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        //
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        //
+    }
+    
+
     @IBAction func githubLink(_ sender: Any) {
         
         if let url = URL(string: "https://github.com/billylo1/BuzzWatch") {
@@ -78,16 +33,24 @@ class ViewController: UIViewController, SessionCommands {
 
     }
     
+    @IBOutlet var versionLabel: UILabel!
     @IBAction func updateAction(_ sender: Any) {
         
-        updateAppContext()
+         self.tabBarController?.selectedIndex = 1
         
     }
     
+    /* this is a development use only code. To retrieve the full list of identifiable sound and put them into the plist file
+       A better solution would be to load it dynamically at runtime, but it will not be a priority for now. Better to get the
+       tool out sooner to evolve it.
+     
+     */
     @IBAction func generateAction(_ sender: Any) {
         do {
             let soundIdentifiers = try SystemAudioClassifier.getAllPossibleLabels()
-            for soundIdentifier in soundIdentifiers.sorted() {
+            let sortedArray = soundIdentifiers.sorted()
+
+            for soundIdentifier in sortedArray {
                 let displayName = SoundIdentifier(labelName: soundIdentifier).displayName
                 let output = """
                 <dict>
@@ -96,7 +59,7 @@ class ViewController: UIViewController, SessionCommands {
                     <key>Title</key>
                     <string>\(displayName)</string>
                     <key>Key</key>
-                    <string>\(soundIdentifier)</string>
+                    <string>sounds_\(soundIdentifier)</string>
                 </dict>
                 
                 """
@@ -108,15 +71,25 @@ class ViewController: UIViewController, SessionCommands {
         }
         
     }
-    func updateAppContext() {
-        
-        print("updateAppContext")
-        
-        switch currentCommand {
-            case .updateAppContext: updateAppContext(appContext);
-            default: print("unknown command")
-        }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        versionLabel.text = "v\( Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
     }
     
+     func getActiveWCSession(completion: @escaping (WCSession)->Void) {
+        guard WCSession.isSupported() else { return }
+
+        let wcSession = WCSession.default
+        wcSession.delegate = self
+
+        if wcSession.activationState == .activated {
+            completion(wcSession)
+        } else {
+            wcSession.activate()
+            // wcSessionActivationCompletion = completion
+        }
+    }
+
 }
 

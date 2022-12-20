@@ -183,7 +183,7 @@
 		B8DF675583CB6F269EB99EA51C7754D6 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = Sources/InAppSettingsKit/Resources/ja.lproj; sourceTree = "<group>"; };
 		BA1BB550E5A48932CF643CE75943F182 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hr.lproj; path = Sources/InAppSettingsKit/Resources/hr.lproj; sourceTree = "<group>"; };
 		BE0108F11FF6CCD65A1A96FC09F5857D /* IASKSpecifierValuesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSpecifierValuesViewController.m; path = Sources/InAppSettingsKit/Controllers/IASKSpecifierValuesViewController.m; sourceTree = "<group>"; };
-		C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = InAppSettingsKit; path = InAppSettingsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InAppSettingsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24B2C17A9FC66A3C1D576CCF6AB9B7F /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = el.lproj; path = Sources/InAppSettingsKit/Resources/el.lproj; sourceTree = "<group>"; };
 		C2A8397AB65F634D1D8B3F86116C6482 /* IASKSettingsStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IASKSettingsStore.m; path = Sources/InAppSettingsKit/Models/IASKSettingsStore.m; sourceTree = "<group>"; };
 		C3470C5960BD3F1D7EB00B1F0F6BD755 /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = Base.lproj; path = Sources/InAppSettingsKit/Resources/Base.lproj; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 		BA6C9F299C57E4BBB40666899E331A72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit */,
+				C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */,
 				325E862631E06444E4504511C87F1E9C /* InAppSettingsKit.bundle */,
 				46808EF562AC690D8B757C67740575D1 /* Pods-BuzzWatch2 */,
 				E0CDFB5573DAFDF677DC4505B8DDCF85 /* Pods-BuzzWatch2Watch Watch App */,
@@ -515,7 +515,7 @@
 			);
 			name = InAppSettingsKit;
 			productName = InAppSettingsKit;
-			productReference = C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit */;
+			productReference = C082AE78A2C795A7CD50CE6E5575AB9C /* InAppSettingsKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8A996938DFC560C0A3EF0DD6CA6B032A /* InAppSettingsKit-InAppSettingsKit */ = {
@@ -579,7 +579,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1410;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -826,6 +826,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -873,7 +874,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/InAppSettingsKit/InAppSettingsKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -908,7 +909,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/InAppSettingsKit/InAppSettingsKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/InAppSettingsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1074,6 +1075,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1110,7 +1112,7 @@
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				IBSC_MODULE = InAppSettingsKit;
 				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = InAppSettingsKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1127,7 +1129,7 @@
 				DEVELOPMENT_TEAM = F6X27PB5BH;
 				IBSC_MODULE = InAppSettingsKit;
 				INFOPLIST_FILE = "Target Support Files/InAppSettingsKit/ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = InAppSettingsKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
