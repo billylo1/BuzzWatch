@@ -11,7 +11,7 @@ Optimized for privacy
 - On device analysis only
 - No network usage
 - No audio recording
-- Supports sirens, car horns, screaming, smoke alarm and 300+ other sounds
+- Supports sirens, car horns, baby cries, smoke alarm and 300+ other sounds
 
 Hope this helps.
 
