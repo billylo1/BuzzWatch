@@ -23,7 +23,7 @@ platform :ios do
   end
   desc "Push a new release build to the App Store"
   lane :release do
-    build_app(workspace: "HomePrice.xcworkspace", scheme: "HomePrice")
+    build_app(scheme: "BuzzWatch2")
     deliver(
       submit_for_review: true,
       force: true,
