@@ -18,11 +18,12 @@ import SoundAnalysis
 import UserNotifications
 import WatchConnectivity
 import HealthKit
+import UIKit
 
 /// Contains customizable settings that control app behavior.
 struct AppConfiguration {
     /// Indicates the amount of audio, in seconds, that informs a prediction.
-    var inferenceWindowSize = Double(1.5)
+    var inferenceWindowSize = Double(3.0) // was 1.5... testing battery
 
     /// The amount of overlap between consecutive analysis windows.
     ///
@@ -30,7 +31,7 @@ struct AppConfiguration {
     /// audio stream into windows, and assigns labels and confidence values. This value determines how
     /// much two consecutive windows overlap. For example, 0.9 means that each window shares 90% of
     /// the audio that the previous window uses.
-    var overlapFactor = Double(0.9)
+    var overlapFactor = Double(0.5)     // was 0.9... testing battery
 
     /// A list of sounds to identify from system audio input.
     var monitoredSounds = [SoundIdentifier]()
@@ -199,6 +200,9 @@ class AppState: ObservableObject, SessionCommands {
         
         soundDetectionIsRunning = true
         buttonTitle = "Stop Listening"
+        startingBatteryLevel = WKInterfaceDevice.current().batteryLevel
+        listeningStartTime = .now
+        // title = "\(startingBatteryLevel)"
 
     }
 
@@ -206,6 +210,8 @@ class AppState: ObservableObject, SessionCommands {
     var notificationAutoStart = false
     let waitTimeBetweenNotifications : Double = 1
     var lastNotified = Date.distantPast
+    var listeningStartTime : Date = Date.now
+    var startingBatteryLevel : Float = 1.0
     
     func stopDetection() {
         
@@ -230,6 +236,12 @@ class AppState: ObservableObject, SessionCommands {
                     detectedSound = soundId.labelName
                     title = soundId.displayName
                     sendNotification("📢 \(soundId.displayName)", classification.confidence)
+                    let currentBatteryLevel = WKInterfaceDevice.current().batteryLevel
+                    let batteryUsed  = Double( (startingBatteryLevel - currentBatteryLevel) * 100.0)
+                    let hoursSinceStarted : Double = (-listeningStartTime.timeIntervalSinceNow / 3600.0)
+                    let batteryConsumptionRatePerHour : Double = batteryUsed / hoursSinceStarted
+                    print("Rate: \(batteryConsumptionRatePerHour)")
+                    // title = "Rate: \(batteryConsumptionRatePerHour)"
                 }
             }
         }

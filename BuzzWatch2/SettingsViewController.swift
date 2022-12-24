@@ -34,6 +34,9 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
             name: .IASKSettingChanged, object: nil
         )
 
+        guard let defaultDict = self.settingsReader?.gatherDefaultsLimited(toEditableFields: true) else { return }
+        UserDefaults.standard.register(defaults: defaultDict)
+
     }
     
     @objc
@@ -74,7 +77,7 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
         
         print(soundLabels)
         
-        let context = [ "monitored_sounds" : soundLabels, "threshold" : settings["confidence_threshold"] , "auto_start" : settings["auto_start"]]
+        let context = [ "monitored_sounds" : soundLabels.sorted(), "threshold" : settings["confidence_threshold"] , "auto_start" : settings["auto_start"]]
         print(context)
         return context as [String : Any]
     }

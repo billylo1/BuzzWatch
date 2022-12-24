@@ -238,10 +238,11 @@ final class SystemAudioClassifier: NSObject {
 
         do {
             let observer = ClassificationResultsSubject(subject: subject)
-
+            
             let request = try SNClassifySoundRequest(classifierIdentifier: .version1)
             request.windowDuration = CMTimeMakeWithSeconds(inferenceWindowSize, preferredTimescale: 48_000)
             request.overlapFactor = overlapFactor
+            
             self.subject = subject
 
             startListeningForAudioSessionInterruptions()
