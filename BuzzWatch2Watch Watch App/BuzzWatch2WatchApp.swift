@@ -91,6 +91,8 @@ class AppState: ObservableObject, SessionCommands {
     init() {
         notificationDelegate = NotificationDelegate(appState: self)
 
+        requestAuthorization(false) // ensure notification authorization is there
+
         UNUserNotificationCenter.current().delegate = notificationDelegate
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
@@ -118,14 +120,12 @@ class AppState: ObservableObject, SessionCommands {
         var sounds = UserDefaults.standard.array(forKey: "monitored_sounds")
         
         if (sounds == nil) {
-            sounds =  ["car_horn", "finger_snapping", "siren", "smoke_detector"]  // default
+            sounds =  ["car_horn", "finger_snapping", "siren", "smoke_detector", "baby_crying"]  // default
         }
         
         for sound in sounds! {
             appConfig.monitoredSounds.append(SoundIdentifier(labelName: sound as! String))
         }
-
-//        print(sounds as! [String])
         
         var threshold = UserDefaults.standard.double(forKey: "threshold")
         if (threshold == 0) {
@@ -200,9 +200,11 @@ class AppState: ObservableObject, SessionCommands {
         
         soundDetectionIsRunning = true
         buttonTitle = "Stop Listening"
-        startingBatteryLevel = WKInterfaceDevice.current().batteryLevel
+        let device = WKInterfaceDevice.current()
+        device.isBatteryMonitoringEnabled = true
+        startingBatteryLevel = device.batteryLevel
         listeningStartTime = .now
-        // title = "\(startingBatteryLevel)"
+        // title = "\(startingBatteryLevel*100)"
 
     }
 
@@ -234,14 +236,16 @@ class AppState: ObservableObject, SessionCommands {
             if (appConfig.monitoredSounds.contains(soundId)) {
                 if (classification.confidence > notificationConfidenceThreshold) {
                     detectedSound = soundId.labelName
+                    
                     title = soundId.displayName
                     sendNotification("📢 \(soundId.displayName)", classification.confidence)
+                    
                     let currentBatteryLevel = WKInterfaceDevice.current().batteryLevel
                     let batteryUsed  = Double( (startingBatteryLevel - currentBatteryLevel) * 100.0)
                     let hoursSinceStarted : Double = (-listeningStartTime.timeIntervalSinceNow / 3600.0)
                     let batteryConsumptionRatePerHour : Double = batteryUsed / hoursSinceStarted
                     print("Rate: \(batteryConsumptionRatePerHour)")
-                    // title = "Rate: \(batteryConsumptionRatePerHour)"
+                    // title = "Consumed: \(batteryUsed)"
                 }
             }
         }
@@ -348,14 +352,6 @@ class NotificationDelegate : NSObject, UNUserNotificationCenterDelegate {    // 
 
         completionHandler([.banner])
 
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//
-//            print("userNotificationCenter - asyncAfter")
-//
-////            if (self.appState.soundDetectionIsRunning) {
-//                self.appState.restartDetection(config: self.appState.appConfig)
-////            }
-//        }
     }
 }
 

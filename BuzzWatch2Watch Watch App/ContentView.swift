@@ -38,11 +38,6 @@ struct ContentView: View {
             ForEach(appState.appConfig.monitoredSounds, id: \.labelName) { sound in
                 Text("\(sound.displayName)").foregroundColor(appState.detectedSound == (sound.labelName) ? .orange : .primary)
             }
-
-//
-//            Button("Send") {
-//                appState.sendNotification("Test", 0.5)
-//            }
         }
         .padding()
     }
