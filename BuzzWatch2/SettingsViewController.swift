@@ -7,6 +7,7 @@
 
 import Foundation
 import InAppSettingsKit
+import UserNotifications
 
 class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegate, SessionCommands {
     
@@ -109,6 +110,21 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
         // guard let buzzWatchSettings = commandStatus.buzzWatchSettings else { return }
         
     }
+    
+    func requestAuthorizationAndSendCommand() {
+        
+        let options: UNAuthorizationOptions = [.badge, .sound, .alert]
+        let center = UNUserNotificationCenter.current()
+
+        center.requestAuthorization(options: options) { (granted, error) in
+            if granted {
+                print("granted")
+            } else {
+                print(error?.localizedDescription ?? "not granted")
+            }
+        }
+    }
+
         
     func sendSettingsToWatch() {
         
@@ -118,6 +134,8 @@ class SettingsViewController: IASKAppSettingsViewController, IASKSettingsDelegat
             case .updateAppContext: updateAppContext(appContext);
             default: print("unknown command")
         }
+        
+
     }
 
 }
