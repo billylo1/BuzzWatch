@@ -29,7 +29,7 @@ Push a new beta build to TestFlight
 [bundle exec] fastlane ios release
 ```
 
-Push a new release build to the App Store
+
 
 ----
 
