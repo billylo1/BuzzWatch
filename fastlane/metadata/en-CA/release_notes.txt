@@ -1,1 +1,1 @@
-- optimized power consumption
+- bug fix for settings synchronization with watch app
