@@ -11,7 +11,7 @@ Optimized for privacy
 - On device analysis only
 - No network usage
 - No audio recording
-- Supports sirens, car horns, baby cries, smoke alarm and 300+ other sounds
+- Supports sirens, car horns, baby cries, smoke alarm and <a href="https://github.com/billylo1/BuzzWatch/blob/main/BuzzWatch2/SupportedSounds.txt">300+ other sounds</a>
 
 Hope this helps.
 
