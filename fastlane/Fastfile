@@ -14,16 +14,21 @@
 # update_fastlane
 
 default_platform(:ios)
+  api_key = app_store_connect_api_key(
+    key_id: "TH4226994B",
+    issuer_id: "bdd730e8-537e-471c-b068-ded20bbd7f82",
+    key_filepath: "~/Xcode/keys/Evergreen_AppConnectAPI_TH4226994B.p8",
+  )
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     build_app(scheme: "BuzzWatch2")
-    upload_to_testflight(skip_waiting_for_build_processing: true)
+    upload_to_testflight(skip_waiting_for_build_processing: true, api_key: api_key)
   end
   lane :release do
     increment_build_number
     build_app(scheme: "BuzzWatch2")
-    upload_to_app_store(reject_if_possible: true, precheck_include_in_app_purchases: false, force: true, submit_for_review: true)
+    upload_to_app_store(reject_if_possible: true, precheck_include_in_app_purchases: false, force: true, submit_for_review: true, api_key: api_key)
   end
 end
