@@ -1,16 +1,28 @@
 PODS:
-  - InAppSettingsKit (3.3.6)
+  - Aptabase (0.3.11)
+  - InAppSettingsKit (3.8.5)
 
 DEPENDENCIES:
+  - Aptabase (from `https://github.com/aptabase/aptabase-swift.git`)
   - InAppSettingsKit
 
 SPEC REPOS:
   trunk:
     - InAppSettingsKit
 
+EXTERNAL SOURCES:
+  Aptabase:
+    :git: https://github.com/aptabase/aptabase-swift.git
+
+CHECKOUT OPTIONS:
+  Aptabase:
+    :commit: cfd67fac2a228d448d9d2ac92ffc71589cc3ef00
+    :git: https://github.com/aptabase/aptabase-swift.git
+
 SPEC CHECKSUMS:
-  InAppSettingsKit: 37df0b44132380d4c7db6fc7cded92997e29873a
+  Aptabase: 3665eeba48efec64309307d9013e1a65cca6a2c8
+  InAppSettingsKit: 185d81410e6352aef3c328c3ba12e60c8283f91e
 
-PODFILE CHECKSUM: 1e6b657708074bec48deefc392ea322794f5d716
+PODFILE CHECKSUM: 567911f5b2ca33a5e2cc92efd55bdc7577762b56
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

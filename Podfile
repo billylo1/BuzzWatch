@@ -7,7 +7,7 @@ target 'BuzzWatch2' do
 
   # Pods for BuzzWatch2
   pod 'InAppSettingsKit'
-
+  pod 'Aptabase', :git => 'https://github.com/aptabase/aptabase-swift.git'
 end
 
 target 'BuzzWatch2Watch Watch App' do

@@ -7,6 +7,7 @@
 
 import UIKit
 import WatchConnectivity
+import Aptabase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(WCSession.isSupported(), "This sample requires Watch Connectivity support!")
         WCSession.default.delegate = sessionDelegator
         WCSession.default.activate()
+        
+        let options = InitOptions(host: "https://aptabase.evergreen-labs.org")
+        Aptabase.shared.initialize(appKey: "A-SH-5483305028", options: options) // 👈 this is where you enter your App Key
+        Aptabase.shared.trackEvent("app_started")
+        Aptabase.shared.flush()
         
         return true
     }

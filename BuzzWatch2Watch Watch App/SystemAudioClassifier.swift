@@ -32,7 +32,7 @@ final class SystemAudioClassifier: NSObject {
     }
 
     /// A dispatch queue to asynchronously perform analysis on.
-    private let analysisQueue = DispatchQueue(label: "com.evergreenlabs.soundanalyzer.classifying-sounds.AnalysisQueue")
+    private let analysisQueue = DispatchQueue(label: "org.evergreenlabs.soundanalyzer.classifying-sounds.AnalysisQueue")
 
     /// An audio engine the app uses to record system input.
     private var audioEngine: AVAudioEngine?

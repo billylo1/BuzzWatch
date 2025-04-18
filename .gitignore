@@ -7,3 +7,43 @@ fastlane/test_output/report.junit
 fastlane/report.xml
 fastlane/report.xml
 fastlane/Preview.html
+Pods/*
+Pods/InAppSettingsKit/README.md
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Controllers/IASKAppSettingsViewController.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Controllers/IASKAppSettingsWebViewController.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Controllers/IASKSpecifierValuesViewController.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKAppSettingsViewController.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKAppSettingsWebViewController.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKEmbeddedDatePickerViewCell.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKMultipleValueSelection.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKSettingsReader.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKSpecifier.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/include/IASKViewController.h
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Models/IASKSettingsReader.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Models/IASKSpecifier.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Resources/zh-Hans.lproj/IASKLocalizable.strings
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Resources/zh-Hant.lproj/IASKLocalizable.strings
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Views/IASKEmbeddedDatePickerViewCell.m
+Pods/InAppSettingsKit/Sources/InAppSettingsKit/Views/IASKTextField.m
+Pods/Manifest.lock
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Pods.xcodeproj/xcuserdata/billylo.xcuserdatad/xcschemes/InAppSettingsKit-InAppSettingsKit.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/billylo.xcuserdatad/xcschemes/InAppSettingsKit.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/billylo.xcuserdatad/xcschemes/Pods-BuzzWatch2.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/billylo.xcuserdatad/xcschemes/Pods-BuzzWatch2Watch Watch App.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/billylo.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Target Support Files/InAppSettingsKit/InAppSettingsKit-Info.plist
+Pods/Target Support Files/InAppSettingsKit/InAppSettingsKit.debug.xcconfig
+Pods/Target Support Files/InAppSettingsKit/InAppSettingsKit.release.xcconfig
+Pods/Target Support Files/InAppSettingsKit/ResourceBundle-InAppSettingsKit-InAppSettingsKit-Info.plist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-acknowledgements.markdown
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-acknowledgements.plist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-Debug-input-files.xcfilelist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-Debug-output-files.xcfilelist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-Release-input-files.xcfilelist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks-Release-output-files.xcfilelist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-frameworks.sh
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2-Info.plist
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2.debug.xcconfig
+Pods/Target Support Files/Pods-BuzzWatch2/Pods-BuzzWatch2.release.xcconfig
+Pods/Target Support Files/Pods-BuzzWatch2Watch Watch App/Pods-BuzzWatch2Watch Watch App-Info.plist
